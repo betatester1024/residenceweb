@@ -58,7 +58,7 @@ function TabbableCtn(indat:{children:JSX.Element[]}) {
   console.log(inCld);
   return <div className="p-3 rounded-md bg-clip-border">
     <TabHeader>
-      {inCld.map((a:ReactElement, i:number)=>{return <_internalTab active={i==activeTab} headertxt={a.props.headertxt!} evHd={setAT} idx={i}>a.props.children</_internalTab>})}
+      {inCld.map((a:ReactElement, i:number)=>{return <_internalTab active={i==activeTab} headertxt={(a.props as TabProps).headertxt!} evHd={setAT} idx={i}>a.props.children</_internalTab>})}
     </TabHeader>
     <div className="p-2 rounded-b-md bg-gray-50">
       {(inCld[activeTab].props as {children:ReactElement}).children}
