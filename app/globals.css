@@ -74,3 +74,7 @@ b {
 kbd {
   @apply font-mono text-blue-400;
 }
+
+.border-lef {
+  border-left: 3px var(--color-gray-300) solid;
+}
