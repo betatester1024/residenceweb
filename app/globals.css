@@ -11,6 +11,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-nsd);
   --font-mono: var(--font-nsm);
+  --font-rail: var(--font-raleway)
 }
 
 @media (prefers-color-scheme: dark) {

@@ -11,10 +11,15 @@ export default function Home() {
   return <Suspense>
     <h1 className="self-center text-center text-xl font-mono text-blue-400">The Salmon Hub (under construction)</h1>
     <TabbableCtn>
-      <Tab linknm="welcome" headertxt="Welcome to the Salmon Hub!">
+      <Tab linknm="welcome" headertxt={<span>Welcome to the <b>Salmon Hub</b></span>}>
         <div>
-          <p className="font-bold text-lg">Announcement: Please fill in Community Gathering When2Meet!</p>
-          <Link href="https://www.when2meet.com/?38367309-X9jZj">Fill form here (No sign-in)</Link>
+          <p className="text-lg font-rail"><b>Announcement:</b> Please fill in Community Gathering <b>When2Meet</b>!</p>
+          <Link target="_blank" href="https://www.when2meet.com/?38367309-X9jZj">Fill form here (No sign-in)</Link>
+        </div>
+        <div>
+          <p className="font-rail text-lg">Fill in your <b>Move-in Condition Report Form</b></p>
+          This protects you from being charged for damage to your unit that was caused by the previous resident. Should be filled within 10 days of move-in!<br/>
+          <Link target="_blank" href="https://can01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fuoft.me%2Fmove-in-condition-report-form&data=05%7C02%7Crufin.hsu%40mail.utoronto.ca%7Cc0a5f9b629ec4ddb3a4008df0e9ab360%7C78aac2262f034b4d9037b46d56c55210%7C0%7C0%7C639245729989298114%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=EI0kCf6N664gfeGmOm8EfI1qgnxFuOA%2Fdl3w%2BvXNElg%3D&reserved=0">Fill form here</Link>
         </div>
         <div>
           Site under construction. - Jen
@@ -22,12 +27,13 @@ export default function Home() {
 
       </Tab>
       <Tab linknm="calendar" headertxt="Calendar">
-        Announcements to come soon!
+        <Link href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
+        Here are the curated highlights:
         <DateAnnounce date={new Date("2026-09-30")}>my beans</DateAnnounce>
         <DateAnnounce date={new Date("2026-09-30")} dateTo={new Date("2027-1-1")}>my other beans</DateAnnounce>
         <DateAnnounce >my other beans</DateAnnounce>
       </Tab>
-      <Tab linknm="help" headertxt={<div><span>There's something wrong with...</span><small><br/>(Self-service help guides)</small></div>}>
+      <Tab linknm="help" headertxt={<div><span>I need <b>help</b> with...</span><small><br/>(Self-service help guides)</small></div>}>
         <h2 className="font-mono font-bold text-blue-400">...My room</h2>
         <div className="tabindent">
           <p className="smallcaps">If urgent, eg. floods, power outages, injuries, lockouts, fires, noise complaints etc: </p>
@@ -48,12 +54,18 @@ export default function Home() {
           </div>
           <p className="smallcaps">It's something else that isn't really either of those things:</p>
           <div className="pl-3 border-lef">
-            Visit the Residence Services Desk on OPH Ground Floor when it is next open. Check its <a href="https://www.utm.utoronto.ca/housing/current-residents/residence-services-desk" target="_blank">hours of operation.</a>
+            Visit the Residence Services Desk (<Link href="tel:9058285286">905-828-5286</Link>) on OPH Ground Floor when it is next open. <br/>
+            The desk is open:
+            <ul className="list-disc list-inside">
+              <li>9am-12am Monday-Friday;</li>
+              <li>9am-9pm Saturday and Sunday;</li>
+              <li>Closed when the University is closed.</li>
+            </ul>
           </div>
         </div>
         <h2 className="font-mono font-bold text-blue-400">...My roommate</h2>
         <div className="tabindent">
-          Try talking to them. Write down what you've discussed and when you did it. If you can't come to an agreement, contact me to arrange conflict mediation.
+          Try talking to them. Write down what you've discussed and when you did it. If you can't come to an agreement, <Link href="?announcements">contact me</Link> to arrange conflict mediation.
         </div>
         <h2 className="font-mono font-bold text-blue-400">...My laundry card</h2>
         <div className="tabindent">
@@ -65,6 +77,27 @@ export default function Home() {
           <p className="text-red-500">Campus Safety (Urgent): <a className="link-red" href="tel:4169782222">(416) 978-2222</a></p>
           UTM WalkSafe Escort - for a Campus Safety officer to walk you to your residence: <a className="link" href="tel:9058285200">(905) 828-5200</a>
         </div>
+      </Tab>
+      <Tab linknm="contact" headertxt="Your Floor Contacts">
+        <p className="text-xl font-rail">Contacts</p>
+        <p className="font-rail"><b>Rufin Hsu</b> - Residence Don</p>
+        <ul className="list-disc list-inside">
+          <li><Link href="mailto:rufin.hsu@mail.utoronto.ca">Via email</Link></li>
+          <li><Link target="_blank" href="https://signal.me/#eu/8V8ciy4DFunX1S7DpGzoSP2nwER2xSsVPxYybh8Y2F8DaQmSH6VEnaRNkEUbGNTo">Via Signal Messenger</Link> ⋅ <Link href="https://signal.org/download/">(Get Signal)</Link></li>
+          <li><Link target="_blank" href="https://outlook.office.com/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book a private meeting with me</Link></li>
+        </ul>
+        <p className="font-rail"><b>Gabrielle</b> - Residence Education Faciliator (REF)</p>
+        <ul className="list-disc list-inside">
+          <li><Link href="mailto:gabby.omoyinbo@mail.utoronto.ca">Via email</Link></li>
+          <li><Link target="_blank" href="https://signal.me/#eu/5vmCvH47A99euBstr0_FwLlKvBXe08XLe7BOrgbEmuVT8ixCLxNG8r7HYeLoBbc3">Via Signal Messenger</Link> ⋅ <Link href="https://signal.org/download/">(Get Signal)</Link></li>
+        </ul>
+        <p className="font-rail"><b>Salmon Run</b> Community</p>
+        <ul className="list-disc list-inside">
+          <li><Link target="_blank" href="https://chat.whatsapp.com/DFOHHdaMtUTGwY3p9ZkLVK">REF Group Chat with Gabby (WhatsApp Messenger)</Link></li>
+          <li><Link target="_blank" href="https://signal.group/#CjQKICp8JwknBMnLH4Xl7UfFAWJ_FQ2XeJobV10y65ekyF_tEhDHkMhVlxq3PWp6FLrhNlUe">Salmon Run Discussion Board (Signal Messenger)</Link></li>
+          <li><Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Salmon Run Announcements! (Signal Messenger)</Link></li>
+        </ul>
+
       </Tab>
     </TabbableCtn>
   </Suspense>
@@ -163,7 +196,7 @@ function Tab(e:{headertxt:string|ReactElement, linknm:string, children?:any}) {
 function _internalTab({headertxt, active, idx, evHd, children}:InTabProps) {
   return <div onClick={
     ()=>{if (evHd) evHd(idx)}
-  } className={`${active?"bg-gray-300 text-blue-500 italic":"bg-gray-200"} grow shrink-0 hover:bg-gray-300 rounded-b-none rounded-t-md p-2 cursor-pointer`}>
+  } className={`${active?"bg-gray-300 text-blue-500 italic":"bg-gray-200"} font-rail grow shrink-0 hover:bg-gray-300 rounded-b-none rounded-t-md p-2 cursor-pointer`}>
     {headertxt}
   </div>
 }

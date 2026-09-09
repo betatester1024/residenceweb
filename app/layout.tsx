@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Display, Noto_Sans_Mono } from "next/font/google";
+import { Noto_Sans_Display, Noto_Sans_Mono, Raleway } from "next/font/google";
 import "./globals.css";
 
 export const nsm = Noto_Sans_Mono({
@@ -12,6 +12,11 @@ export const nsd = Noto_Sans_Display({
   subsets: ["latin"],
 });
 
+export const raleway = Raleway({
+  variable: "--font-raleway",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "UTM Salmon Hub",
   description: "CLOSED BETA NOT READY FOR RELEASE",
@@ -21,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`h-full antialiased ${nsm.variable} ${nsd.variable}` }
+      className={`h-full antialiased ${nsm.variable} ${nsd.variable} ${raleway.variable}` }
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
