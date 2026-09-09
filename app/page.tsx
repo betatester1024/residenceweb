@@ -3,11 +3,11 @@ import { createHook } from "async_hooks";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
-import { Children, JSX, ReactElement, ReactNode, useEffect, useState } from "react";
+import { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
 
 
 export default function Home() {
-  return <div>
+  return <Suspense>
     <h1 className="self-center text-center text-xl font-mono text-blue-400">The Salmon Hub (under construction)</h1>
     <TabbableCtn>
       <Tab linknm="welcome" headertxt="Welcome to the Salmon Hub!">Site under construction. - Jen</Tab>
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </Tab>
     </TabbableCtn>
-  </div>
+  </Suspense>
 }
 
 
