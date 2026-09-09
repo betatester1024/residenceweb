@@ -1,15 +1,18 @@
 "use client";
+import { createHook } from "async_hooks";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
-import { Children, JSX, ReactElement, ReactNode, useState } from "react";
+import { Children, JSX, ReactElement, ReactNode, useEffect, useState } from "react";
+
 
 export default function Home() {
-
   return <div>
     <h1 className="self-center text-center text-xl font-mono text-blue-400">The Salmon Hub (under construction)</h1>
     <TabbableCtn>
-      <Tab headertxt="Welcome">potatoes</Tab>
-      <Tab headertxt="There's something wrong with...">
+      <Tab linknm="welcome" headertxt="Welcome to the Salmon Hub!">Site under construction. - Jen</Tab>
+      <Tab linknm="announcements" headertxt="Announcements">Announcements to come soon!</Tab>
+      <Tab linknm="help" headertxt={<div><span>There's something wrong with...</span><small><br/>(Self-service help guides)</small></div>}>
         <h2 className="font-mono font-bold text-blue-400">...My room</h2>
         <div className="tabindent">
           <p className="smallcaps">If urgent, eg. floods, power outages, injuries, lockouts, fires, noise complaints etc: </p>
@@ -52,10 +55,31 @@ export default function Home() {
   </div>
 }
 
+
 function TabbableCtn(indat:{children:JSX.Element[]}) {
-  let [activeTab, setAT] = useState<number>(0);
+  let [ready, setReady] = useState<boolean>(false);
+  let init = 0;
+
   let inCld = indat.children as ReactElement[];
-  console.log(inCld);
+  let initialHash = useSearchParams().get("tab") ?? "";
+  // useEffect(()=>{ready = true;}, [activeTab]);
+  if (!ready) {
+    for (let i=0; i<inCld.length; i++) {
+      // console.log(inCld[i].props.linknm);
+      console.log("inhsh", initialHash, (inCld[i].props as TabProps).linknm.toLowerCase().trim());
+      if ((inCld[i].props as TabProps).linknm.toLowerCase().trim() == initialHash.toLowerCase().trim()) {
+        console.log("set", i);
+        init = i;
+      }
+    }
+    setReady(true);
+  }
+  let [activeTab, setAT] = useState<number>(init);
+
+  useEffect(()=>{
+    console.log("[pyshed");
+    history.pushState({}, "", "?tab="+(inCld[activeTab].props as TabProps).linknm);
+  }, [activeTab]);
   return <div className="p-3 rounded-md bg-clip-border">
     <TabHeader>
       {inCld.map((a:ReactElement, i:number)=>{return <_internalTab active={i==activeTab} headertxt={(a.props as TabProps).headertxt!} evHd={setAT} idx={i}>a.props.children</_internalTab>})}
@@ -71,20 +95,24 @@ function TabHeader(indat:{children?:ReactElement|ReactElement[]}) {
   return <div className={`tabHeader rounded-t-md flex w-full bg-gray-100 p-2 pb-0 gap-1`}>{indat.children}</div>
 }
 
-
 interface TabProps {
+  children: any,
+  linknm: string,
+  headertxt: string|ReactElement
+}
+
+interface InTabProps {
   headertxt:string|ReactElement,
   idx:number,
   active:boolean,
   evHd:(a:number)=>any,
   children?:any
 }
-function Tab(e:{headertxt:string|ReactElement, children?:any}) {
+function Tab(e:{headertxt:string|ReactElement, linknm:string, children?:any}) {
   return "This is not supposed to display."
 }
 
-function _internalTab({headertxt, active, idx, evHd, children}:TabProps) {
-  console.log("my index is", idx);
+function _internalTab({headertxt, active, idx, evHd, children}:InTabProps) {
   return <div onClick={
     ()=>{if (evHd) evHd(idx)}
   } className={`${active?"bg-gray-300 text-blue-500 italic":"bg-gray-200"} hover:bg-gray-300 rounded-b-none rounded-t-md p-2 cursor-pointer`}>
