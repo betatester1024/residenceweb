@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-nsd);
+  --font-mono: var(--font-nsm);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-nsd), Helvetica, sans-serif;
+}
+
+.link, a {
+  color: var(--color-blue-400);
+  text-decoration: underline;
+  white-space:nowrap;
+}
+
+.link:hover, a:hover {
+  color: var(--color-blue-500);
+}
+
+.link:active, a:active {
+  color: var(--color-blue-300);
+}
+
+.link-red {
+  color: var(--color-red-400);
+  text-decoration: underline;
+}
+
+.link-red:hover {
+  color: var(--color-red-500);
+}
+
+.link-red:active {
+  color: var(--color-red-300);
+}
+
+.smallcaps {
+  @apply text-gray-600 text-lg;
+  font-variant-caps: small-caps;
+}
+
+
+b {
+  font-weight: bold;
+}
+
+.tabindent {
+  @apply pl-3 bg-gray-100 rounded-md;
+}
+
+.tabindent:hover {
+  @apply bg-gray-200;
+}
+
+kbd {
+  @apply font-mono text-blue-400;
+}
