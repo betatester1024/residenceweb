@@ -3,16 +3,18 @@ import { createHook } from "async_hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import bigfishjump from '../public/bigfishjump.png';
 
 import { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
-
 
 export default function Home() {
   return <Suspense>
     <h1 className="self-center text-center text-xl font-mono text-blue-400">The Salmon Hub (under construction)</h1>
     <TabbableCtn>
       <Tab linknm="welcome" headertxt={<span>Welcome to the <b>Salmon Hub</b></span>}>
-        <div>
+        <div className="w-full justify-center flex">
+          <Image src={bigfishjump} alt="bigfishjump" height={300}></Image>
+        </div> <div>
           <p className="text-lg font-rail"><b>Announcement:</b> Please fill in Community Gathering <b>When2Meet</b>!</p>
           <Link target="_blank" className="border-lef" href="https://www.when2meet.com/?38367309-X9jZj">Fill form here</Link>
         </div>
@@ -98,10 +100,19 @@ export default function Home() {
         </details>
 
         <details className="tabindent">
-          <summary className="font-mono font-bold text-blue-400">...Getting around on campus</summary>
+          <summary className="font-mono font-bold text-blue-400">...Getting around Mississauga</summary>
           The UTMSU provides you with a U-PASS which allows you free bus rides on the MiWay network! <br/>
           Follow setup steps <Link href="https://utmsu.ca/services/u-pass/#get-started" target="_blank">here</Link>. Then redeem <Link href="https://uoft.service-now.com/utm_upass" target="_blank">here (UtorID Login)</Link>
+          <p><b>Groceries:</b> NoFrills, Walmart, Shoppers at South Common (Take 110N or 48), FreshCo at Dundas at Erindale (Take 1E)</p>
+          <p><b>Connection to regional transit:</b> GO Transit at City Centre Transit Terminal (Take 110N)</p>
+          <p><b>Furniture and stuff:</b> Walmart or Ikea Etobiocke (Take 1E &gt; 44)</p>
         </details>
+        <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...Food on campus</summary>
+          <Link href="https://www.utm.utoronto.ca/hospitality/Food#LocationsHours" target="_blank">Food locations and Hours of Operation</Link><br/>
+          <Link href="https://www.utm.utoronto.ca/hospitality/weekly-menus-colman-commons" target="_blank">What's at Colman Commons this Week</Link>
+        </details>
+
       </Tab>
       <Tab linknm="contact" headertxt="Your Floor Contacts">
         <p className="text-xl font-rail">Contacts</p>

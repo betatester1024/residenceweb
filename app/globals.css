@@ -16,8 +16,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --background: var(--color-gray-400); */
+    /* --foreground: #ededed; */
   }
 }
 
@@ -84,8 +84,11 @@ kbd {
 details {
   max-height: 30px;
   overflow-y: hidden;
-  cursor: pointer;
   transition: max-height 0.5s ease;
+}
+
+summary {
+  cursor: pointer;
 }
 
 details:open, details[open] {
