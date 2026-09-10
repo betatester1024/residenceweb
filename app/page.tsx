@@ -14,12 +14,14 @@ export default function Home() {
       <Tab linknm="welcome" headertxt={<span>Welcome to the <b>Salmon Hub</b></span>}>
         <div>
           <p className="text-lg font-rail"><b>Announcement:</b> Please fill in Community Gathering <b>When2Meet</b>!</p>
-          <Link target="_blank" href="https://www.when2meet.com/?38367309-X9jZj">Fill form here (No sign-in)</Link>
+          <Link target="_blank" className="border-lef" href="https://www.when2meet.com/?38367309-X9jZj">Fill form here</Link>
         </div>
         <div>
           <p className="font-rail text-lg">Fill in your <b>Move-in Condition Report Form</b></p>
-          This protects you from being charged for damage to your unit that was caused by the previous resident. Should be filled within 10 days of move-in!<br/>
-          <Link target="_blank" href="https://can01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fuoft.me%2Fmove-in-condition-report-form&data=05%7C02%7Crufin.hsu%40mail.utoronto.ca%7Cc0a5f9b629ec4ddb3a4008df0e9ab360%7C78aac2262f034b4d9037b46d56c55210%7C0%7C0%7C639245729989298114%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=EI0kCf6N664gfeGmOm8EfI1qgnxFuOA%2Fdl3w%2BvXNElg%3D&reserved=0">Fill form here</Link>
+          <div className="border-lef">
+            This protects you from being charged for damage to your unit that was caused by the previous resident. Should be filled within 10 days of move-in!<br/>
+            <Link target="_blank" href="https://can01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fuoft.me%2Fmove-in-condition-report-form&data=05%7C02%7Crufin.hsu%40mail.utoronto.ca%7Cc0a5f9b629ec4ddb3a4008df0e9ab360%7C78aac2262f034b4d9037b46d56c55210%7C0%7C0%7C639245729989298114%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=EI0kCf6N664gfeGmOm8EfI1qgnxFuOA%2Fdl3w%2BvXNElg%3D&reserved=0">Fill form here</Link>
+          </div>
         </div>
         <div>
           Site under construction. - Jen
@@ -27,15 +29,24 @@ export default function Home() {
 
       </Tab>
       <Tab linknm="calendar" headertxt="Calendar">
-        <Link href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
+        <Link target="_blank" href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
         Here are the curated highlights:
-        <DateAnnounce date={new Date("2026-09-30")}>my beans</DateAnnounce>
-        <DateAnnounce date={new Date("2026-09-30")} dateTo={new Date("2027-1-1")}>my other beans</DateAnnounce>
-        <DateAnnounce >my other beans</DateAnnounce>
+        <DateAnnounce date={new Date("2026-09-10")}>
+          <p className="font-rail">UTMSU Presents <b>Premiere Night</b> - 8p-11p - Student Centre</p>
+          <p>From UTMSU: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
+        </DateAnnounce>
+        <DateAnnounce date={new Date("2026-09-13")}>
+          <p className="font-rail">UTMSU Presents <b>Paint and Glow</b> - 8p-10p - Davis Field</p>
+          <p>From UTMSU: <kbd className="text-black!">Close out the week under the lights with music, glowing colours, and an outdoor celebration you will not want to miss.</kbd></p>
+          <Link href="https://utmsu.ca/orientation/">https://utmsu.ca/orientation/</Link>
+        </DateAnnounce>
+        <DateAnnounce date={new Date("2026-09-30")} dateTo={new Date("2027-1-1")}>My test event</DateAnnounce>
+        <DateAnnounce>jen's test event 2</DateAnnounce>
       </Tab>
       <Tab linknm="help" headertxt={<div><span>I need <b>help</b> with...</span><small><br/>(Self-service help guides)</small></div>}>
-        <h2 className="font-mono font-bold text-blue-400">...My room</h2>
-        <div className="tabindent">
+
+        <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...My room</summary>
           <p className="smallcaps">If urgent, eg. floods, power outages, injuries, lockouts, fires, noise complaints etc: </p>
           <div className="pl-3 border-lef">
             <span className="text-red-500">Call Don on Duty: <a href="tel:2898050580" className="link-red">(289)-805-0580</a><br></br></span>
@@ -62,21 +73,35 @@ export default function Home() {
               <li>Closed when the University is closed.</li>
             </ul>
           </div>
-        </div>
-        <h2 className="font-mono font-bold text-blue-400">...My roommate</h2>
-        <div className="tabindent">
-          Try talking to them. Write down what you've discussed and when you did it. If you can't come to an agreement, <Link href="?announcements">contact me</Link> to arrange conflict mediation.
-        </div>
-        <h2 className="font-mono font-bold text-blue-400">...My laundry card</h2>
-        <div className="tabindent">
+        </details>
+
+        <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...My roommate</summary>
+          Try talking to them. Write down what you've discussed and when you did it. If you can't come to an agreement, contact me to arrange conflict mediation.
+        </details>
+
+        <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...My laundry card</summary>
           <p>If washing machine reads <kbd>Visit Value Add Center</kbd> when card is tapped, visit the OPH Lobby where the vending machines are, and place the card in the Sparkle Laundry Services reader.</p>
           <p>If card reads a balance of <kbd>0.00</kbd> when read in the machine, wait 2-3 business days for the value to be updated by Sparkle.</p>
-        </div>
-        <h2 className="font-mono font-bold text-blue-400">...My safety</h2>
-        <div className="tabindent">
+        </details>
+        <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...My safety</summary>
           <p className="text-red-500">Campus Safety (Urgent): <a className="link-red" href="tel:4169782222">(416) 978-2222</a></p>
           UTM WalkSafe Escort - for a Campus Safety officer to walk you to your residence: <a className="link" href="tel:9058285200">(905) 828-5200</a>
-        </div>
+        </details>
+
+        <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...My internet</summary>
+          Connect to the network called <kbd>UofT</kbd> with your UtorID as the username and its password as the password.
+          No internet? Contact the Residence Services Desk
+        </details>
+
+        <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...Getting around on campus</summary>
+          The UTMSU provides you with a U-PASS which allows you free bus rides on the MiWay network! <br/>
+          Follow setup steps <Link href="https://utmsu.ca/services/u-pass/#get-started" target="_blank">here</Link>. Then redeem <Link href="https://uoft.service-now.com/utm_upass" target="_blank">here (UtorID Login)</Link>
+        </details>
       </Tab>
       <Tab linknm="contact" headertxt="Your Floor Contacts">
         <p className="text-xl font-rail">Contacts</p>
