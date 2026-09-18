@@ -145,6 +145,13 @@ export default function Home() {
 
         </details>
         <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...Mental and Physical health</summary>
+          <p>The Health and Counselling Centre (down the stairs by the Tim Hortons, DV1152). Every registered student* is eligible for their services.</p>
+          <p>* Canadian residents must show their T-Card and provincial health card.</p>
+          <p>* International students must obtain and show a <Link href="https://uhip.ca/uhip-services/coverage-card/" target="_blank">UHIP Coverage card</Link> to avoid out-of-pocket charge. You should already have UHIP coverage at no extra cost.</p>
+          <p>To book an appointment, call <Link href="tel:9058285255">(905) 828-5255</Link> or visit in-person at <b>DV 1152.</b> Same-day appointments are sometimes offered depending on availability.</p>
+        </details>
+        <details className="tabindent">
           <summary className="font-mono font-bold text-blue-400">...Food on campus</summary>
           <Link href="https://www.utm.utoronto.ca/hospitality/Food#LocationsHours" target="_blank">Food locations and Hours of Operation</Link><br/>
           <Link href="https://www.utm.utoronto.ca/hospitality/weekly-menus-colman-commons" target="_blank">What's at Colman Commons this Week</Link><br/>
@@ -173,7 +180,21 @@ export default function Home() {
           <li><Link target="_blank" href="https://signal.group/#CjQKICp8JwknBMnLH4Xl7UfFAWJ_FQ2XeJobV10y65ekyF_tEhDHkMhVlxq3PWp6FLrhNlUe">Salmon Run Discussion Board (Signal Messenger)</Link></li>
           <li><Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Salmon Run Announcements! (Signal Messenger)</Link></li>
         </ul>
-
+        <p className="font-rail"><b>Residence</b> supports</p>
+        <ul className="list-disc list-inside">
+          <li><a className="link-red" href="tel:4169782222">Campus Safety (Urgent): (416) 978-2222</a></li>
+          <li><a className="" href="tel:9058285200">Campus Safety (non-emergency): (905) 828-5200</a></li>
+          <li><Link target="_blank" href="mailto:community.safety@utoronto.ca">Community Safety Office: community.safety@utoronto.ca</Link></li>
+          <li><Link className="link" href="tel:9058285200">WalkSafe Service (905) 828-5200</Link></li>
+          <li><Link target="_blank" href="mailto:residence.utm@utoronto.ca">Residence Services Desk: residence.utm@utoronto.ca</Link></li>
+          <li><Link href="tel:9058285286" className="">Residence Services Desk: (905) 828-5286</Link></li>
+          <li><Link href="tel:2898050580" className="">Don on Duty: (289) 805-0580</Link></li>
+        </ul>
+        <p className="font-rail"><b>Campus</b> supports</p>
+        <ul className="list-disc list-inside">
+          <li><Link href="https://www.utm.utoronto.ca/health/" target="_blank">Health and Counselling Centre</Link></li>
+          <li><Link href="https://www.utm.utoronto.ca/rgasc/" target="_blank">Robert Gillespie Academic Skills Centre</Link></li>
+        </ul>
       </Tab>
     </TabbableCtn>
   </Suspense>
@@ -183,33 +204,35 @@ function DateAnnounce({children, date:d, dateTo:dt, evHdr}:{children:ReactNode, 
   let date = d?new Date(d):null, dateTo = dt?new Date(dt):null;
   return <div className={`grid grid-cols-subgrid transition-colors duration-250`}
       style={{gridColumn: `span 2`}}>
-    <div className="p-2 bg-gray-200 hover:bg-gray-100 rounded-md items-center flex flex-col">
+    <div className="p-2 bg-gray-200 hover:bg-gray-100 rounded-md items-center flex flex-col justify-start">
       {(date && dateTo) ? (
         date.getDate() != dateTo.getDate() ? <>
         <p className="text-nowrap">
           <span className="font-bold text-blue-400 font-mono text-3xl">{date.getDate()}</span>
-          <span className="font-mono whitespace-nowrap font-sm"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
+          <span className="font-mono whitespace-nowrap text-lg"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
         </p>
         <span className="font-mono text-sm"> to </span>
         <p className="text-nowrap">
           <span className="font-bold font-mono text-3xl text-blue-400">{dateTo!.getDate()}</span>
-          <span className="font-mono whitespace-nowrap font-sm"> {dateTo!.toLocaleDateString(undefined, {month:"short"})}</span>
+          <span className="font-mono whitespace-nowrap text-lg"> {dateTo!.toLocaleDateString(undefined, {month:"short"})}</span>
         </p>
       </> : <>
         <p className="font-mono text-sm">{date.toLocaleDateString(undefined, {weekday:"long"})}</p>
         <p className="text-nowrap">
           <span className="font-bold text-blue-400 font-mono text-3xl">{date.getDate()}</span>
-          <span className="font-mono whitespace-nowrap font-sm"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
+          <span className="font-mono whitespace-nowrap text-lg"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
         </p>
         <p className="text-nowrap">
-          <span className="text-blue-400 font-mono text-xl">{date!.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", hourCycle:"h24"})}-<br/></span>
-          <span className="font-mono text-xl text-blue-400">{dateTo!.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", hourCycle:"h24"})}</span>
+          <span className="font-mono text-sm">{date!.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", hourCycle:"h24"})}-</span>
+          <span className="font-mono text-sm">{dateTo!.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", hourCycle:"h24"})}</span>
         </p>
       </>
     ): (date ? <>
         <p className="font-mono text-sm">{date.toLocaleDateString(undefined, {weekday:"long"})}</p>
-        <p className="font-bold font-mono text-4xl text-blue-400">{date.getDate()}</p>
-        <p className="font-mono whitespace-nowrap font-sm">{date.toLocaleDateString(undefined, {month:"short"})}</p>
+        <p>
+          <span className="font-bold font-mono text-4xl text-blue-400">{date.getDate()}</span>&nbsp;
+          <span className="font-mono whitespace-nowrap text-lg">{date.toLocaleDateString(undefined, {month:"short"})}</span>
+        </p>
       </>:<>
         <p>Ongoing!</p>
       </>
@@ -316,7 +339,7 @@ function Tab(e:{headertxt:string|ReactElement, linknm:string, children?:any}) {
 function _internalTab({headertxt, active, idx, evHd, children}:InTabProps) {
   return <div onClick={
     ()=>{if (evHd) evHd(idx)}
-  } className={`${active?"bg-gray-300 text-blue-500 italic":"bg-gray-200"} font-rail grow shrink-0 hover:bg-gray-300 rounded-b-none rounded-t-md p-2 cursor-pointer`}>
+  } className={`${active?"bg-gray-300 text-blue-500 translate-y-2":"bg-gray-200"} transition-all font-rail grow shrink-0 hover:bg-gray-300 rounded-b-none rounded-t-md p-2 cursor-pointer`}>
     {headertxt}
   </div>
 }
