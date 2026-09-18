@@ -61,9 +61,7 @@ export default function Home() {
           <p className="font-rail">EON Presents <b>Quiz Night</b> - 6p - Roy Ivor</p>
           <p>From EON: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
         </DateAnnounce>
-
-        <DateAnnounce date={new Date("2026-09-30")} dateTo={new Date("2027-1-1")}>My test event</DateAnnounce>
-        <DateAnnounce>ART event coming soon.</DateAnnounce>
+        <DateAnnounce>ART event coming soon -- stay tuned!</DateAnnounce>
       </Tab>
       <Tab linknm="help" headertxt={<div><span>I need <b>help</b> with...</span><small><br/>(Self-service help guides)</small></div>}>
 
