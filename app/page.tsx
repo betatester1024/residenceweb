@@ -5,7 +5,10 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import bigfishjump from '../public/bigfishjump.png';
 
-import { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
+import React, { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
+import ical, { ICalCalendarMethod } from 'ical-generator';
+import { createRoot } from "react-dom/client";
+import { flushSync } from "react-dom";
 
 export default function Home() {
   return <Suspense>
@@ -44,24 +47,30 @@ export default function Home() {
       <Tab linknm="calendar" headertxt="Calendar">
         <Link target="_blank" href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
         Here are the curated highlights:
-        <DateAnnounce date={new Date("2026-09-20")}>
+        <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
+        {[<DateAnnounce date="2026-09-20 14:" dateTo="2026-09-20 16:" evHdr="GAME Soccer Tournament">
           <p className="font-rail">GAME Presents <b>Soccer Tournament</b> - 2p-4p - North Field (by MN)</p>
           <p>From GAME: <kbd className="text-black!">Join us for an afternoon of soccer, competition and fun! Earn Colman Cup points, and win raffle prizes. No cleats!</kbd></p>
-        </DateAnnounce>
-        <DateAnnounce date={new Date("2026-09-21")}>
+        </DateAnnounce>,
+        <DateAnnounce date="2026-09-21 21:" dateTo="2026-09-21 22:" evHdr="Community Gatherings with jen!">
           <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
           <p>From your very own Don: New fish every week! <br/> Snacks this week: chips; juice; twix; oreos. </p>
-        </DateAnnounce>
-        <DateAnnounce date={new Date("2026-09-23")}>
+        </DateAnnounce>,
+        <DateAnnounce date="2026-09-23 10:30" dateTo="2026-09-23 14:30" evHdr="Get Hired Fair">
           <p className="font-rail">Career Centre's <b>Get Hired Fair</b> - 10:30a-2:30p - RAWC (Gym A/B, the big one)</p>
           <p>Meet employers. Get hired. Your opportunity to speak with employers about potential opportunities including internships, summer, part-time, full-time, volunteer and co-op. Positions promoted at the fair include both on and off-campus. Bring your TCard and drop in at any time!</p>
           <Link href="https://uoft.me/ghf">uoft.me/ghf</Link>
-        </DateAnnounce>
-        <DateAnnounce date={new Date("2026-09-25")}>
+        </DateAnnounce>,
+        <DateAnnounce date="2026-09-24 20:" dateTo="2026-09-24 21:" evHdr="REF Workshop with Gabby">
+          <p className="font-rail">REF Workshop <b>with Gabby!</b> - 8p-9p - 4th Floor Common Room</p>
+          <p>Workshop topic <b>to come.</b> </p>
+        </DateAnnounce>,
+        <DateAnnounce date="2026-09-25 18:" evHdr="EON Quiz Night">
           <p className="font-rail">EON Presents <b>Quiz Night</b> - 6p - Roy Ivor</p>
           <p>From EON: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
-        </DateAnnounce>
-        <DateAnnounce>ART event coming soon -- stay tuned!</DateAnnounce>
+        </DateAnnounce>,
+        <DateAnnounce evHdr="ART Event (soon)">ART event coming soon -- stay tuned!</DateAnnounce>]}
+        </div>
       </Tab>
       <Tab linknm="help" headertxt={<div><span>I need <b>help</b> with...</span><small><br/>(Self-service help guides)</small></div>}>
 
@@ -170,10 +179,13 @@ export default function Home() {
   </Suspense>
 }
 
-function DateAnnounce({children, date, dateTo}:{children:ReactNode, date?:Date, dateTo?:Date}) {
-  return <div className="flex flex-row gap-2 mb-2">
+function DateAnnounce({children, date:d, dateTo:dt, evHdr}:{children:ReactNode, date?:string, dateTo?:string, evHdr:string}) {
+  let date = d?new Date(d):null, dateTo = dt?new Date(dt):null;
+  return <div className={`grid grid-cols-subgrid transition-colors duration-250`}
+      style={{gridColumn: `span 2`}}>
     <div className="p-2 bg-gray-200 hover:bg-gray-100 rounded-md items-center flex flex-col">
-      {(date && dateTo) ? <>
+      {(date && dateTo) ? (
+        date.getDate() != dateTo.getDate() ? <>
         <p className="text-nowrap">
           <span className="font-bold text-blue-400 font-mono text-3xl">{date.getDate()}</span>
           <span className="font-mono whitespace-nowrap font-sm"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
@@ -183,7 +195,18 @@ function DateAnnounce({children, date, dateTo}:{children:ReactNode, date?:Date, 
           <span className="font-bold font-mono text-3xl text-blue-400">{dateTo!.getDate()}</span>
           <span className="font-mono whitespace-nowrap font-sm"> {dateTo!.toLocaleDateString(undefined, {month:"short"})}</span>
         </p>
-      </>: (date ? <>
+      </> : <>
+        <p className="font-mono text-sm">{date.toLocaleDateString(undefined, {weekday:"long"})}</p>
+        <p className="text-nowrap">
+          <span className="font-bold text-blue-400 font-mono text-3xl">{date.getDate()}</span>
+          <span className="font-mono whitespace-nowrap font-sm"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
+        </p>
+        <p className="text-nowrap">
+          <span className="text-blue-400 font-mono text-xl">{date!.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", hourCycle:"h24"})}-<br/></span>
+          <span className="font-mono text-xl text-blue-400">{dateTo!.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", hourCycle:"h24"})}</span>
+        </p>
+      </>
+    ): (date ? <>
         <p className="font-mono text-sm">{date.toLocaleDateString(undefined, {weekday:"long"})}</p>
         <p className="font-bold font-mono text-4xl text-blue-400">{date.getDate()}</p>
         <p className="font-mono whitespace-nowrap font-sm">{date.toLocaleDateString(undefined, {month:"short"})}</p>
@@ -194,8 +217,38 @@ function DateAnnounce({children, date, dateTo}:{children:ReactNode, date?:Date, 
     </div>
     <div className="w-full p-2 bg-gray-100 hover:bg-gray-200 rounded-md">
       {children}
-    </div>
-  </div>
+      {date ? <><br/><Link href="" onClick={()=>{createEvent(children, evHdr, date, dateTo)}}>Add to Calendar</Link></> : <></>}
+    </div></div>
+}
+
+function createEvent(children:ReactNode, evHdr:string, date:Date, dateTo:Date|null) {
+  let div = document.createElement("div");
+  const root = createRoot(div);
+  flushSync(() => {
+    root.render(children);
+  });
+  const calendar = ical({ name: 'Salmon Hub Event' });
+  calendar.method(ICalCalendarMethod.PUBLISH);
+  if (date) calendar.createEvent({
+    start: date,
+    end: dateTo,
+    summary: evHdr,
+    description: div.innerText,
+    url: 'https://utmsalmonhub.vercel.app/?tab=calendar',
+  })
+  let st = calendar.toString();
+  const blob = new Blob([st], {
+    type: "application/text",
+  });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `event.ics`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  console.log(calendar.toString())
 }
 
 function TabbableCtn(indat:{children:JSX.Element[]}) {
