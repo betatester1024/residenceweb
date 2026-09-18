@@ -12,38 +12,58 @@ export default function Home() {
     <h1 className="self-center text-center text-xl font-mono text-blue-400">The Salmon Hub (under construction)</h1>
     <TabbableCtn>
       <Tab linknm="welcome" headertxt={<span>Welcome to the <b>Salmon Hub</b></span>}>
+        <div>
+          <p className="text-lg font-rail"><b>Announcement:</b> Please book your <b>One-on-One</b> meeting! Everyone must book at least one of these per semester!</p>
+          <Link target="_blank" className="border-lef" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book One-on-Ones now!</Link>
+        </div> <div>
+          <p className="font-rail text-lg"><b>Announcement:</b> Please book your <b>House meetings</b> with your roommate! Everyone must book these by <b>September 25<sup>th</sup>!</b> Yes, even if you don't have a roommate.</p>
+          <div className="border-lef">
+            <Link target="_blank" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/w9GHAtKwCkC3LtPcFO7YAw2?ismsaljsauthenabled">Book House Meetings now!</Link>
+          </div>
+        </div> <div>
+          <p className="font-rail text-lg"><b>Announcement:</b> Please pester your roommate to <b>join the Signal!</b></p>
+          <div className="border-lef">
+            <Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Join the Signal Group Chat</Link>
+          </div>
         <div className="w-full justify-center flex">
           <Image src={bigfishjump} alt="bigfishjump" height={300}></Image>
-        </div> <div>
-          <p className="text-lg font-rail"><b>Announcement:</b> Please fill in Community Gathering <b>When2Meet</b>!</p>
-          <Link target="_blank" className="border-lef" href="https://www.when2meet.com/?38367309-X9jZj">Fill form here</Link>
         </div>
-        <div>
-          <p className="font-rail text-lg">Fill in your <b>Move-in Condition Report Form</b></p>
+
+        <br/><br/>
+        </div> <div className="text-sm">
+          <p className="font-rail"><i>Past Due:</i> Fill in your <i>Move-in Condition Report Form</i></p>
           <div className="border-lef">
             This protects you from being charged for damage to your unit that was caused by the previous resident. Should be filled within 10 days of move-in!<br/>
             <Link target="_blank" href="https://can01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fuoft.me%2Fmove-in-condition-report-form&data=05%7C02%7Crufin.hsu%40mail.utoronto.ca%7Cc0a5f9b629ec4ddb3a4008df0e9ab360%7C78aac2262f034b4d9037b46d56c55210%7C0%7C0%7C639245729989298114%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=EI0kCf6N664gfeGmOm8EfI1qgnxFuOA%2Fdl3w%2BvXNElg%3D&reserved=0">Fill form here</Link>
           </div>
         </div>
         <div>
-          Site under construction. - Jen
         </div>
 
       </Tab>
       <Tab linknm="calendar" headertxt="Calendar">
         <Link target="_blank" href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
         Here are the curated highlights:
-        <DateAnnounce date={new Date("2026-09-10")}>
-          <p className="font-rail">UTMSU Presents <b>Premiere Night</b> - 8p-11p - Student Centre</p>
-          <p>From UTMSU: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
+        <DateAnnounce date={new Date("2026-09-20")}>
+          <p className="font-rail">GAME Presents <b>Soccer Tournament</b> - 2p-4p - North Field (by MN)</p>
+          <p>From GAME: <kbd className="text-black!">Join us for an afternoon of soccer, competition and fun! Earn Colman Cup points, and win raffle prizes. No cleats!</kbd></p>
         </DateAnnounce>
-        <DateAnnounce date={new Date("2026-09-13")}>
-          <p className="font-rail">UTMSU Presents <b>Paint and Glow</b> - 8p-10p - Davis Field</p>
-          <p>From UTMSU: <kbd className="text-black!">Close out the week under the lights with music, glowing colours, and an outdoor celebration you will not want to miss.</kbd></p>
-          <Link href="https://utmsu.ca/orientation/">https://utmsu.ca/orientation/</Link>
+        <DateAnnounce date={new Date("2026-09-21")}>
+          <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
+          <p>From your very own Don: New fish every week! <br/> Snacks this week: chips; juice; twix; oreos. </p>
         </DateAnnounce>
+        <DateAnnounce date={new Date("2026-09-23")}>
+          <p className="font-rail">Career Centre's <b>Get Hired Fair</b> - 10:30a-2:30p - RAWC (Gym A/B, the big one)</p>
+          <p>Meet employers. Get hired. Your opportunity to speak with employers about potential opportunities including internships, summer, part-time, full-time, volunteer and co-op. Positions promoted at the fair include both on and off-campus. Bring your TCard and drop in at any time!</p>
+          <Link href="https://uoft.me/ghf">uoft.me/ghf</Link>
+        </DateAnnounce>
+        <DateAnnounce date={new Date("2026-09-25")}>
+          <p className="font-rail">EON Presents <b>Quiz Night</b> - 6p - Roy Ivor</p>
+          <p>From EON: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
+        </DateAnnounce>
+
         <DateAnnounce date={new Date("2026-09-30")} dateTo={new Date("2027-1-1")}>My test event</DateAnnounce>
-        <DateAnnounce>jen's test event 2</DateAnnounce>
+        <DateAnnounce>ART event coming soon.</DateAnnounce>
       </Tab>
       <Tab linknm="help" headertxt={<div><span>I need <b>help</b> with...</span><small><br/>(Self-service help guides)</small></div>}>
 
@@ -98,6 +118,15 @@ export default function Home() {
           Connect to the network called <kbd>UofT</kbd> with your UtorID as the username and its password as the password.
           No internet? Contact the Residence Services Desk
         </details>
+        <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...Printing on Campus</summary>
+          <p>You can print at the UTMSU for 6c per page Black&White (5c/side double-sided) and 12c per page Colour (10c/side double-sided).</p>
+          <p><Link href="https://print.utmsu.ca" target="_blank">Register for an account here (UTMSU Load Funds appears to be down right now -- check back later.)</Link></p>
+          <p>You can also print around campus for 10c per page Black&White (8c/side double-sided) and 40c per page Colour (32c/side double-sided).</p>
+          <p>Printers are found in the Library (Main floor 2), in CCT Building by the vending machines, and outside DH2060. Bring your T-Card!</p>
+          <p><Link href="https://utm.avrocustomer.com/login.aspx?ReturnUrl=%2f" target="_blank">Check and Load funds (Select "COPY PRINT ONLY")</Link></p>
+
+        </details>
 
         <details className="tabindent">
           <summary className="font-mono font-bold text-blue-400">...Getting around Mississauga</summary>
@@ -105,12 +134,16 @@ export default function Home() {
           Follow setup steps <Link href="https://utmsu.ca/services/u-pass/#get-started" target="_blank">here</Link>. Then redeem <Link href="https://uoft.service-now.com/utm_upass" target="_blank">here (UtorID Login)</Link>
           <p><b>Groceries:</b> NoFrills, Walmart, Shoppers at South Common (Take 110N or 48), FreshCo at Dundas at Erindale (Take 1E)</p>
           <p><b>Connection to regional transit:</b> GO Transit at City Centre Transit Terminal (Take 110N)</p>
-          <p><b>Furniture and stuff:</b> Walmart or Ikea Etobiocke (Take 1E &gt; 44)</p>
+          <p><b>Furniture and stuff:</b> Walmart or Ikea Etobicoke (Take 1E &gt; 44)</p>
+
         </details>
         <details className="tabindent">
           <summary className="font-mono font-bold text-blue-400">...Food on campus</summary>
           <Link href="https://www.utm.utoronto.ca/hospitality/Food#LocationsHours" target="_blank">Food locations and Hours of Operation</Link><br/>
-          <Link href="https://www.utm.utoronto.ca/hospitality/weekly-menus-colman-commons" target="_blank">What's at Colman Commons this Week</Link>
+          <Link href="https://www.utm.utoronto.ca/hospitality/weekly-menus-colman-commons" target="_blank">What's at Colman Commons this Week</Link><br/>
+          <Link href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=7BdEuMWOZU-G4e9lhZGrRu7ENUqqqYpMnULs2ZrB0ApURFlVU1g3VVVTRVhMQzRIRkNNRUtVMFNSSy4u&route=shorturl" target="_blank">Send feedback about Food on Campus</Link><br/>
+          <Link href="https://utm.avrocustomer.com/login.aspx?ReturnUrl=%2f" target="_blank">Check your Meal Plan Balance</Link><br/>
+
         </details>
 
       </Tab>
@@ -120,7 +153,7 @@ export default function Home() {
         <ul className="list-disc list-inside">
           <li><Link href="mailto:rufin.hsu@mail.utoronto.ca">Via email</Link></li>
           <li><Link target="_blank" href="https://signal.me/#eu/8V8ciy4DFunX1S7DpGzoSP2nwER2xSsVPxYybh8Y2F8DaQmSH6VEnaRNkEUbGNTo">Via Signal Messenger</Link> ⋅ <Link href="https://signal.org/download/">(Get Signal)</Link></li>
-          <li><Link target="_blank" href="https://outlook.office.com/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book a private meeting with me</Link></li>
+          <li><Link target="_blank" href="https://outlook.office.com/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book a private One-on-One meeting with me</Link></li>
         </ul>
         <p className="font-rail"><b>Gabrielle</b> - Residence Education Faciliator (REF)</p>
         <ul className="list-disc list-inside">

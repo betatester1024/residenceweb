@@ -19,7 +19,7 @@ export const raleway = Raleway({
 
 export const metadata: Metadata = {
   title: "UTM Salmon Hub",
-  description: "CLOSED BETA NOT READY FOR RELEASE",
+  description: "Information, announcements and support hub for OPH Salmon Run",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
