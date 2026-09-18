@@ -16,15 +16,15 @@ export default function Home() {
     <TabbableCtn>
       <Tab linknm="welcome" headertxt={<span>Welcome to the <b>Salmon Hub</b></span>}>
         <div>
-          <p className="text-lg font-rail"><b>Announcement:</b> Please book your <b>One-on-One</b> meeting! Everyone must book at least one of these per semester!</p>
+          <p className="text-lg font-rail"><b className="text-blue-400">Announcement:</b> Please book your <b>One-on-One</b> meeting! Everyone must book at least one of these per semester!</p>
           <Link target="_blank" className="border-lef" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book One-on-Ones now!</Link>
         </div> <div>
-          <p className="font-rail text-lg"><b>Announcement:</b> Please book your <b>House meetings</b> with your roommate! Everyone must book these by <b>September 25<sup>th</sup>!</b> Yes, even if you don't have a roommate.</p>
+          <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please book your <b>House meetings</b> with your roommate! Everyone must book these by <b>September 25<sup>th</sup>!</b> Yes, even if you don't have a roommate.</p>
           <div className="border-lef">
             <Link target="_blank" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/w9GHAtKwCkC3LtPcFO7YAw2?ismsaljsauthenabled">Book House Meetings now!</Link>
           </div>
         </div> <div>
-          <p className="font-rail text-lg"><b>Announcement:</b> Please pester your roommate to <b>join the Signal!</b></p>
+          <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please pester your roommate to <b>join the Signal!</b></p>
           <div className="border-lef">
             <Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Join the Signal Group Chat</Link>
           </div>
@@ -195,6 +195,22 @@ export default function Home() {
           <li><Link href="https://www.utm.utoronto.ca/health/" target="_blank">Health and Counselling Centre</Link></li>
           <li><Link href="https://www.utm.utoronto.ca/rgasc/" target="_blank">Robert Gillespie Academic Skills Centre</Link></li>
         </ul>
+      </Tab>
+      <Tab linknm="address" headertxt="Mailing address">
+        <p className="text-xl font-rail text-blue-400">UTM Residence <b>mailing address</b></p>
+        <p className="font-rail">Address all mail and packages to this address to be able to pick it up at the Residence Services desk. Mail cannot be sent directly to your building.</p>
+        <kbd className="whitespace">[First Name] [Last Name]<br/>
+P.O. Box #[Number]<br/>
+3353 Mississauga Road,<br/>
+Mississauga, Ontario, L5L 6A2<br/>
+Canada
+</kbd> <p className="font-rail">Your first and last name should be the one displayed on your TCard. Your P.O. Box number is written on your key packet when you moved in.</p>
+<p className="font-rail">Sample entry:</p><kbd>
+Jane Doe<br/>
+P.O Box #100<br/>
+3353 Mississauga Road,<br/>
+Mississauga, Ontario, L5L 6A2<br/>
+Canada</kbd>
       </Tab>
     </TabbableCtn>
   </Suspense>

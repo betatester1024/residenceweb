@@ -14,13 +14,6 @@
   --font-rail: var(--font-raleway)
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* --background: var(--color-gray-400); */
-    /* --foreground: #ededed; */
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
