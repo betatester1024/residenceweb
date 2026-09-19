@@ -215,8 +215,13 @@ Canada</kbd>
   </Suspense>
 }
 
+function parseDate(st: string) {
+  let out = new Date();
+  out.setTime(Date.parse(st));
+  return out;
+}
 function DateAnnounce({children, date:d, dateTo:dt, evHdr}:{children:ReactNode, date?:string, dateTo?:string, evHdr:string}) {
-  let date = d?new Date(d):null, dateTo = dt?new Date(dt):null;
+  let date = d?parseDate(d):null, dateTo = dt?parseDate(dt):null;
   return <div className={`grid grid-cols-subgrid transition-colors duration-250`}
       style={{gridColumn: `span 2`}}>
     <div className="p-2 bg-gray-200 hover:bg-gray-100 rounded-md items-center flex flex-col justify-start">
