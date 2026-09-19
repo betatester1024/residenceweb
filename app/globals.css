@@ -23,7 +23,7 @@ body {
 .link, a {
   color: var(--color-blue-400);
   text-decoration: underline;
-  white-space:nowrap;
+  /* white-space:nowrap; */
 }
 
 .link:hover, a:hover {

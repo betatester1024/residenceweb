@@ -1,11 +1,10 @@
 "use client";
-import { createHook } from "async_hooks";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import bigfishjump from '../public/bigfishjump.png';
 
-import React, { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
+import { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
 import ical, { ICalCalendarMethod } from 'ical-generator';
 import { createRoot } from "react-dom/client";
 import { flushSync } from "react-dom";
@@ -18,12 +17,12 @@ export default function Home() {
         <div>
           <p className="text-lg font-rail"><b className="text-blue-400">Announcement:</b> Please book your <b>One-on-One</b> meeting! Everyone must book at least one of these per semester!</p>
           <Link target="_blank" className="border-lef" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book One-on-Ones now!</Link>
-        </div> <div>
+        </div><br/> <div>
           <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please book your <b>House meetings</b> with your roommate! Everyone must book these by <b>September 25<sup>th</sup>!</b> Yes, even if you don't have a roommate.</p>
           <div className="border-lef">
             <Link target="_blank" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/w9GHAtKwCkC3LtPcFO7YAw2?ismsaljsauthenabled">Book House Meetings now!</Link>
           </div>
-        </div> <div>
+        </div><br/> <div>
           <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please pester your roommate to <b>join the Signal!</b></p>
           <div className="border-lef">
             <Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Join the Signal Group Chat</Link>
@@ -48,28 +47,28 @@ export default function Home() {
         <Link target="_blank" href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
         Here are the curated highlights:
         <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
-        {[<DateAnnounce date="2026-09-20 14:" dateTo="2026-09-20 16:" evHdr="GAME Soccer Tournament">
+        <DateAnnounce date="2026-09-20 14:" dateTo="2026-09-20 16:" evHdr="GAME Soccer Tournament">
           <p className="font-rail">GAME Presents <b>Soccer Tournament</b> - 2p-4p - North Field (by MN)</p>
           <p>From GAME: <kbd className="text-black!">Join us for an afternoon of soccer, competition and fun! Earn Colman Cup points, and win raffle prizes. No cleats!</kbd></p>
-        </DateAnnounce>,
+        </DateAnnounce>
         <DateAnnounce date="2026-09-21 21:" dateTo="2026-09-21 22:" evHdr="Community Gatherings with jen!">
           <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
           <p>From your very own Don: New fish every week! <br/> Snacks this week: chips; juice; twix; oreos. </p>
-        </DateAnnounce>,
+        </DateAnnounce>
         <DateAnnounce date="2026-09-23 10:30" dateTo="2026-09-23 14:30" evHdr="Get Hired Fair">
           <p className="font-rail">Career Centre's <b>Get Hired Fair</b> - 10:30a-2:30p - RAWC (Gym A/B, the big one)</p>
           <p>Meet employers. Get hired. Your opportunity to speak with employers about potential opportunities including internships, summer, part-time, full-time, volunteer and co-op. Positions promoted at the fair include both on and off-campus. Bring your TCard and drop in at any time!</p>
           <Link href="https://uoft.me/ghf">uoft.me/ghf</Link>
-        </DateAnnounce>,
+        </DateAnnounce>
         <DateAnnounce date="2026-09-24 20:" dateTo="2026-09-24 21:" evHdr="REF Workshop with Gabby">
           <p className="font-rail">REF Workshop <b>with Gabby!</b> - 8p-9p - 4th Floor Common Room</p>
-          <p>Workshop topic <b>to come.</b> </p>
-        </DateAnnounce>,
+          <p><b>Goal Setting & Habit Forming</b>: Develop study strategies, self-advocacy skills, and structured decision-making to make informed choices and foster academic resilience and respond well to academic challenges. Learn to avoid academic integrity violations and to use AI responsibly.</p>
+        </DateAnnounce>
         <DateAnnounce date="2026-09-25 18:" evHdr="EON Quiz Night">
           <p className="font-rail">EON Presents <b>Quiz Night</b> - 6p - Roy Ivor</p>
           <p>From EON: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
-        </DateAnnounce>,
-        <DateAnnounce evHdr="ART Event (soon)">ART event coming soon -- stay tuned!</DateAnnounce>]}
+        </DateAnnounce>
+        <DateAnnounce evHdr="ART Event (soon)">ART event coming soon -- stay tuned!</DateAnnounce>
         </div>
       </Tab>
       <Tab linknm="help" headertxt={<div><span>I need <b>help</b> with...</span><small><br/>(Self-service help guides)</small></div>}>
@@ -205,9 +204,9 @@ P.O. Box #[Number]<br/>
 Mississauga, Ontario, L5L 6A2<br/>
 Canada
 </kbd> <p className="font-rail">Your first and last name should be the one displayed on your TCard. Your P.O. Box number is written on your key packet when you moved in.</p>
-<p className="font-rail">Sample entry:</p><kbd>
-Jane Doe<br/>
-P.O Box #100<br/>
+<p className="font-rail">Sample entry:</p><kbd className="text-black!">
+Jennifer Green<br/>
+P.O. Box #221<br/>
 3353 Mississauga Road,<br/>
 Mississauga, Ontario, L5L 6A2<br/>
 Canada</kbd>
@@ -332,7 +331,7 @@ function TabbableCtn(indat:{children:JSX.Element[]}) {
 }
 
 function TabHeader(indat:{children?:ReactElement|ReactElement[]}) {
-  return <div className={`tabHeader rounded-t-md flex w-full overflow-x-scroll bg-gray-100 p-2 pb-0 gap-1`}>{indat.children}</div>
+  return <div className={`tabHeader rounded-t-md flex w-full overflow-x-auto overflow-y-clip bg-gray-100 p-2 pb-0 gap-1`}>{indat.children}</div>
 }
 
 interface TabProps {
