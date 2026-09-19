@@ -5,7 +5,10 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import bigfishjump from '../public/bigfishjump.png';
 
-import { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
+import React, { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
+import ical, { ICalCalendarMethod } from 'ical-generator';
+import { createRoot } from "react-dom/client";
+import { flushSync } from "react-dom";
 
 export default function Home() {
   return <Suspense>
@@ -13,15 +16,15 @@ export default function Home() {
     <TabbableCtn>
       <Tab linknm="welcome" headertxt={<span>Welcome to the <b>Salmon Hub</b></span>}>
         <div>
-          <p className="text-lg font-rail"><b>Announcement:</b> Please book your <b>One-on-One</b> meeting! Everyone must book at least one of these per semester!</p>
+          <p className="text-lg font-rail"><b className="text-blue-400">Announcement:</b> Please book your <b>One-on-One</b> meeting! Everyone must book at least one of these per semester!</p>
           <Link target="_blank" className="border-lef" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book One-on-Ones now!</Link>
         </div> <div>
-          <p className="font-rail text-lg"><b>Announcement:</b> Please book your <b>House meetings</b> with your roommate! Everyone must book these by <b>September 25<sup>th</sup>!</b> Yes, even if you don't have a roommate.</p>
+          <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please book your <b>House meetings</b> with your roommate! Everyone must book these by <b>September 25<sup>th</sup>!</b> Yes, even if you don't have a roommate.</p>
           <div className="border-lef">
             <Link target="_blank" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/w9GHAtKwCkC3LtPcFO7YAw2?ismsaljsauthenabled">Book House Meetings now!</Link>
           </div>
         </div> <div>
-          <p className="font-rail text-lg"><b>Announcement:</b> Please pester your roommate to <b>join the Signal!</b></p>
+          <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please pester your roommate to <b>join the Signal!</b></p>
           <div className="border-lef">
             <Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Join the Signal Group Chat</Link>
           </div>
@@ -44,24 +47,30 @@ export default function Home() {
       <Tab linknm="calendar" headertxt="Calendar">
         <Link target="_blank" href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
         Here are the curated highlights:
-        <DateAnnounce date={new Date("2026-09-20")}>
+        <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
+        {[<DateAnnounce date="2026-09-20 14:" dateTo="2026-09-20 16:" evHdr="GAME Soccer Tournament">
           <p className="font-rail">GAME Presents <b>Soccer Tournament</b> - 2p-4p - North Field (by MN)</p>
           <p>From GAME: <kbd className="text-black!">Join us for an afternoon of soccer, competition and fun! Earn Colman Cup points, and win raffle prizes. No cleats!</kbd></p>
-        </DateAnnounce>
-        <DateAnnounce date={new Date("2026-09-21")}>
+        </DateAnnounce>,
+        <DateAnnounce date="2026-09-21 21:" dateTo="2026-09-21 22:" evHdr="Community Gatherings with jen!">
           <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
           <p>From your very own Don: New fish every week! <br/> Snacks this week: chips; juice; twix; oreos. </p>
-        </DateAnnounce>
-        <DateAnnounce date={new Date("2026-09-23")}>
+        </DateAnnounce>,
+        <DateAnnounce date="2026-09-23 10:30" dateTo="2026-09-23 14:30" evHdr="Get Hired Fair">
           <p className="font-rail">Career Centre's <b>Get Hired Fair</b> - 10:30a-2:30p - RAWC (Gym A/B, the big one)</p>
           <p>Meet employers. Get hired. Your opportunity to speak with employers about potential opportunities including internships, summer, part-time, full-time, volunteer and co-op. Positions promoted at the fair include both on and off-campus. Bring your TCard and drop in at any time!</p>
           <Link href="https://uoft.me/ghf">uoft.me/ghf</Link>
-        </DateAnnounce>
-        <DateAnnounce date={new Date("2026-09-25")}>
+        </DateAnnounce>,
+        <DateAnnounce date="2026-09-24 20:" dateTo="2026-09-24 21:" evHdr="REF Workshop with Gabby">
+          <p className="font-rail">REF Workshop <b>with Gabby!</b> - 8p-9p - 4th Floor Common Room</p>
+          <p>Workshop topic <b>to come.</b> </p>
+        </DateAnnounce>,
+        <DateAnnounce date="2026-09-25 18:" evHdr="EON Quiz Night">
           <p className="font-rail">EON Presents <b>Quiz Night</b> - 6p - Roy Ivor</p>
           <p>From EON: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
-        </DateAnnounce>
-        <DateAnnounce>ART event coming soon -- stay tuned!</DateAnnounce>
+        </DateAnnounce>,
+        <DateAnnounce evHdr="ART Event (soon)">ART event coming soon -- stay tuned!</DateAnnounce>]}
+        </div>
       </Tab>
       <Tab linknm="help" headertxt={<div><span>I need <b>help</b> with...</span><small><br/>(Self-service help guides)</small></div>}>
 
@@ -136,6 +145,13 @@ export default function Home() {
 
         </details>
         <details className="tabindent">
+          <summary className="font-mono font-bold text-blue-400">...Mental and Physical health</summary>
+          <p>The Health and Counselling Centre (down the stairs by the Tim Hortons, DV1152). Every registered student* is eligible for their services.</p>
+          <p>* Canadian residents must show their T-Card and provincial health card.</p>
+          <p>* International students must obtain and show a <Link href="https://uhip.ca/uhip-services/coverage-card/" target="_blank">UHIP Coverage card</Link> to avoid out-of-pocket charge. You should already have UHIP coverage at no extra cost.</p>
+          <p>To book an appointment, call <Link href="tel:9058285255">(905) 828-5255</Link> or visit in-person at <b>DV 1152.</b> Same-day appointments are sometimes offered depending on availability.</p>
+        </details>
+        <details className="tabindent">
           <summary className="font-mono font-bold text-blue-400">...Food on campus</summary>
           <Link href="https://www.utm.utoronto.ca/hospitality/Food#LocationsHours" target="_blank">Food locations and Hours of Operation</Link><br/>
           <Link href="https://www.utm.utoronto.ca/hospitality/weekly-menus-colman-commons" target="_blank">What's at Colman Commons this Week</Link><br/>
@@ -164,29 +180,75 @@ export default function Home() {
           <li><Link target="_blank" href="https://signal.group/#CjQKICp8JwknBMnLH4Xl7UfFAWJ_FQ2XeJobV10y65ekyF_tEhDHkMhVlxq3PWp6FLrhNlUe">Salmon Run Discussion Board (Signal Messenger)</Link></li>
           <li><Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Salmon Run Announcements! (Signal Messenger)</Link></li>
         </ul>
-
+        <p className="font-rail"><b>Residence</b> supports</p>
+        <ul className="list-disc list-inside">
+          <li><a className="link-red" href="tel:4169782222">Campus Safety (Urgent): (416) 978-2222</a></li>
+          <li><a className="" href="tel:9058285200">Campus Safety (non-emergency): (905) 828-5200</a></li>
+          <li><Link target="_blank" href="mailto:community.safety@utoronto.ca">Community Safety Office: community.safety@utoronto.ca</Link></li>
+          <li><Link className="link" href="tel:9058285200">WalkSafe Service (905) 828-5200</Link></li>
+          <li><Link target="_blank" href="mailto:residence.utm@utoronto.ca">Residence Services Desk: residence.utm@utoronto.ca</Link></li>
+          <li><Link href="tel:9058285286" className="">Residence Services Desk: (905) 828-5286</Link></li>
+          <li><Link href="tel:2898050580" className="">Don on Duty: (289) 805-0580</Link></li>
+        </ul>
+        <p className="font-rail"><b>Campus</b> supports</p>
+        <ul className="list-disc list-inside">
+          <li><Link href="https://www.utm.utoronto.ca/health/" target="_blank">Health and Counselling Centre</Link></li>
+          <li><Link href="https://www.utm.utoronto.ca/rgasc/" target="_blank">Robert Gillespie Academic Skills Centre</Link></li>
+        </ul>
+      </Tab>
+      <Tab linknm="address" headertxt="Mailing address">
+        <p className="text-xl font-rail text-blue-400">UTM Residence <b>mailing address</b></p>
+        <p className="font-rail">Address all mail and packages to this address to be able to pick it up at the Residence Services desk. Mail cannot be sent directly to your building.</p>
+        <kbd className="whitespace">[First Name] [Last Name]<br/>
+P.O. Box #[Number]<br/>
+3353 Mississauga Road,<br/>
+Mississauga, Ontario, L5L 6A2<br/>
+Canada
+</kbd> <p className="font-rail">Your first and last name should be the one displayed on your TCard. Your P.O. Box number is written on your key packet when you moved in.</p>
+<p className="font-rail">Sample entry:</p><kbd>
+Jane Doe<br/>
+P.O Box #100<br/>
+3353 Mississauga Road,<br/>
+Mississauga, Ontario, L5L 6A2<br/>
+Canada</kbd>
       </Tab>
     </TabbableCtn>
   </Suspense>
 }
 
-function DateAnnounce({children, date, dateTo}:{children:ReactNode, date?:Date, dateTo?:Date}) {
-  return <div className="flex flex-row gap-2 mb-2">
-    <div className="p-2 bg-gray-200 hover:bg-gray-100 rounded-md items-center flex flex-col">
-      {(date && dateTo) ? <>
+function DateAnnounce({children, date:d, dateTo:dt, evHdr}:{children:ReactNode, date?:string, dateTo?:string, evHdr:string}) {
+  let date = d?new Date(d):null, dateTo = dt?new Date(dt):null;
+  return <div className={`grid grid-cols-subgrid transition-colors duration-250`}
+      style={{gridColumn: `span 2`}}>
+    <div className="p-2 bg-gray-200 hover:bg-gray-100 rounded-md items-center flex flex-col justify-start">
+      {(date && dateTo) ? (
+        date.getDate() != dateTo.getDate() ? <>
         <p className="text-nowrap">
           <span className="font-bold text-blue-400 font-mono text-3xl">{date.getDate()}</span>
-          <span className="font-mono whitespace-nowrap font-sm"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
+          <span className="font-mono whitespace-nowrap text-lg"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
         </p>
         <span className="font-mono text-sm"> to </span>
         <p className="text-nowrap">
           <span className="font-bold font-mono text-3xl text-blue-400">{dateTo!.getDate()}</span>
-          <span className="font-mono whitespace-nowrap font-sm"> {dateTo!.toLocaleDateString(undefined, {month:"short"})}</span>
+          <span className="font-mono whitespace-nowrap text-lg"> {dateTo!.toLocaleDateString(undefined, {month:"short"})}</span>
         </p>
-      </>: (date ? <>
+      </> : <>
         <p className="font-mono text-sm">{date.toLocaleDateString(undefined, {weekday:"long"})}</p>
-        <p className="font-bold font-mono text-4xl text-blue-400">{date.getDate()}</p>
-        <p className="font-mono whitespace-nowrap font-sm">{date.toLocaleDateString(undefined, {month:"short"})}</p>
+        <p className="text-nowrap">
+          <span className="font-bold text-blue-400 font-mono text-3xl">{date.getDate()}</span>
+          <span className="font-mono whitespace-nowrap text-lg"> {date.toLocaleDateString(undefined, {month:"short"})}</span>
+        </p>
+        <p className="text-nowrap">
+          <span className="font-mono text-sm">{date!.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", hourCycle:"h24"})}-</span>
+          <span className="font-mono text-sm">{dateTo!.toLocaleTimeString(undefined, {hour:"2-digit", minute:"2-digit", hourCycle:"h24"})}</span>
+        </p>
+      </>
+    ): (date ? <>
+        <p className="font-mono text-sm">{date.toLocaleDateString(undefined, {weekday:"long"})}</p>
+        <p>
+          <span className="font-bold font-mono text-4xl text-blue-400">{date.getDate()}</span>&nbsp;
+          <span className="font-mono whitespace-nowrap text-lg">{date.toLocaleDateString(undefined, {month:"short"})}</span>
+        </p>
       </>:<>
         <p>Ongoing!</p>
       </>
@@ -194,8 +256,38 @@ function DateAnnounce({children, date, dateTo}:{children:ReactNode, date?:Date, 
     </div>
     <div className="w-full p-2 bg-gray-100 hover:bg-gray-200 rounded-md">
       {children}
-    </div>
-  </div>
+      {date ? <><br/><Link href="" onClick={()=>{createEvent(children, evHdr, date, dateTo)}}>Add to Calendar</Link></> : <></>}
+    </div></div>
+}
+
+function createEvent(children:ReactNode, evHdr:string, date:Date, dateTo:Date|null) {
+  let div = document.createElement("div");
+  const root = createRoot(div);
+  flushSync(() => {
+    root.render(children);
+  });
+  const calendar = ical({ name: 'Salmon Hub Event' });
+  calendar.method(ICalCalendarMethod.PUBLISH);
+  if (date) calendar.createEvent({
+    start: date,
+    end: dateTo,
+    summary: evHdr,
+    description: div.innerText,
+    url: 'https://utmsalmonhub.vercel.app/?tab=calendar',
+  })
+  let st = calendar.toString();
+  const blob = new Blob([st], {
+    type: "application/text",
+  });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `event.ics`;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+  console.log(calendar.toString())
 }
 
 function TabbableCtn(indat:{children:JSX.Element[]}) {
@@ -263,7 +355,7 @@ function Tab(e:{headertxt:string|ReactElement, linknm:string, children?:any}) {
 function _internalTab({headertxt, active, idx, evHd, children}:InTabProps) {
   return <div onClick={
     ()=>{if (evHd) evHd(idx)}
-  } className={`${active?"bg-gray-300 text-blue-500 italic":"bg-gray-200"} font-rail grow shrink-0 hover:bg-gray-300 rounded-b-none rounded-t-md p-2 cursor-pointer`}>
+  } className={`${active?"bg-gray-300 text-blue-500 translate-y-2":"bg-gray-200"} transition-all font-rail grow shrink-0 hover:bg-gray-300 rounded-b-none rounded-t-md p-2 cursor-pointer`}>
     {headertxt}
   </div>
 }
