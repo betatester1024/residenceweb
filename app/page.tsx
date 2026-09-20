@@ -28,7 +28,7 @@ export default function Home() {
             <Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Join the Signal Group Chat</Link>
           </div>
         <div className="w-full justify-center flex">
-          <Image src={bigfishjump} alt="bigfishjump" height={300}></Image>
+          <Image src={bigfishjump} alt="bigfishjump" loading="eager" height={300}></Image>
         </div>
 
         <br/><br/>

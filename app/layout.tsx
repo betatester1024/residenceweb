@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Sans_Display, Noto_Sans_Mono, Raleway } from "next/font/google";
 import "./globals.css";
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 export const nsm = Noto_Sans_Mono({
   variable: "--font-nsm",
   subsets: ["latin"],
@@ -28,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`h-full antialiased ${nsm.variable} ${nsd.variable} ${raleway.variable}` }
     >
+      <SpeedInsights/>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
