@@ -64,7 +64,11 @@ export default function Home() {
           <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
           <p>From your very own Don: New fish every week! <br/> Snacks this week: chips; juice; twix; oreos. </p>
         </DateAnnounce>
-        <DateAnnounce date="2026-10-25 14:00" dateTo="2026-10-25 16:00" evHdr="GAME Soccer Tournament">
+        <DateAnnounce date="2026-09-30" evHdr="Fall Payment Deadline">
+          <p className="font-rail">Fall Term Fee <b>payment deadline</b></p>
+          <p>Pay your Fall term fees by this date in full to avoid service charges.</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-25 14:00" dateTo="2026-10-25 16:00" evHdr="GAME Dodgeball Tournament">
           <p className="font-rail">GAME Presents <b>Dodgeball</b> - 2p - RAWC (Gym A/B, the big one)</p>
           <p>From GAME: <kbd className="text-black!">Join us for an afternoon of soccer, competition and fun! Earn Colman Cup points, and win raffle prizes. No cleats!</kbd></p>
         </DateAnnounce>
