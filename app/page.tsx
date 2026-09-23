@@ -47,14 +47,6 @@ export default function Home() {
         <Link target="_blank" href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
         Here are the curated highlights:
         <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
-        <DateAnnounce date="2026-09-20 14:00" dateTo="2026-09-20 16:00" evHdr="GAME Soccer Tournament">
-          <p className="font-rail">GAME Presents <b>Soccer Tournament</b> - 2p-4p - North Field (by MN)</p>
-          <p>From GAME: <kbd className="text-black!">Join us for an afternoon of soccer, competition and fun! Earn Colman Cup points, and win raffle prizes. No cleats!</kbd></p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-09-21 21:00" dateTo="2026-09-21 22:00" evHdr="Community Gatherings with jen!">
-          <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
-          <p>From your very own Don: New fish every week! <br/> Snacks this week: chips; juice; twix; oreos. </p>
-        </DateAnnounce>
         <DateAnnounce date="2026-09-23 10:30" dateTo="2026-09-23 14:30" evHdr="Get Hired Fair">
           <p className="font-rail">Career Centre's <b>Get Hired Fair</b> - 10:30a-2:30p - RAWC (Gym A/B, the big one)</p>
           <p>Meet employers. Get hired. Your opportunity to speak with employers about potential opportunities including internships, summer, part-time, full-time, volunteer and co-op. Positions promoted at the fair include both on and off-campus. Bring your TCard and drop in at any time!</p>
@@ -67,6 +59,14 @@ export default function Home() {
         <DateAnnounce date="2026-09-25 18:00" evHdr="EON Quiz Night">
           <p className="font-rail">EON Presents <b>Quiz Night</b> - 6p - Roy Ivor</p>
           <p>From EON: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-09-28 21:00" dateTo="2026-09-28 22:00" evHdr="Community Gatherings with jen!">
+          <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
+          <p>From your very own Don: New fish every week! <br/> Snacks this week: chips; juice; twix; oreos. </p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-25 14:00" dateTo="2026-10-25 16:00" evHdr="GAME Soccer Tournament">
+          <p className="font-rail">GAME Presents <b>Dodgeball</b> - 2p - RAWC (Gym A/B, the big one)</p>
+          <p>From GAME: <kbd className="text-black!">Join us for an afternoon of soccer, competition and fun! Earn Colman Cup points, and win raffle prizes. No cleats!</kbd></p>
         </DateAnnounce>
         <DateAnnounce evHdr="ART Event (soon)">ART event coming soon -- stay tuned!</DateAnnounce>
         </div>
