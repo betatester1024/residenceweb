@@ -197,6 +197,7 @@ export default function Home() {
         <ul className="list-disc list-inside">
           <li><Link href="https://www.utm.utoronto.ca/health/" target="_blank">Health and Counselling Centre</Link></li>
           <li><Link href="https://www.utm.utoronto.ca/rgasc/" target="_blank">Robert Gillespie Academic Skills Centre</Link></li>
+          <li><Link href="https://www.utm.utoronto.ca/mental-health-supports/mental-health-supports/mental-health-and-crisis-supports">Mental health supports on campus</Link></li>
         </ul>
       </Tab>
       <Tab linknm="address" headertxt="Mailing address">
