@@ -18,11 +18,6 @@ export default function Home() {
           <p className="text-lg font-rail"><b className="text-blue-400">Announcement:</b> Please book your <b>One-on-One</b> meeting! Everyone must book at least one of these per semester!</p>
           <Link target="_blank" className="border-lef" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book One-on-Ones now!</Link>
         </div><br/> <div>
-          <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please book your <b>House meetings</b> with your roommate! Everyone must book these by <b>September 25<sup>th</sup>!</b> Yes, even if you don't have a roommate.</p>
-          <div className="border-lef">
-            <Link target="_blank" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/w9GHAtKwCkC3LtPcFO7YAw2?ismsaljsauthenabled">Book House Meetings now!</Link>
-          </div>
-        </div><br/> <div>
           <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please pester your roommate to <b>join the Signal!</b></p>
           <div className="border-lef">
             <Link target="_blank" href="https://signal.group/#CjQKIH3x4grVIFH3keWDvhIXgAQKHkUr380MVtE60NUEj0W8EhAP_K5mrA-y5XfY_EslVR90">Join the Signal Group Chat</Link>
@@ -38,6 +33,11 @@ export default function Home() {
             This protects you from being charged for damage to your unit that was caused by the previous resident. Should be filled within 10 days of move-in!<br/>
             <Link target="_blank" href="https://can01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fuoft.me%2Fmove-in-condition-report-form&data=05%7C02%7Crufin.hsu%40mail.utoronto.ca%7Cc0a5f9b629ec4ddb3a4008df0e9ab360%7C78aac2262f034b4d9037b46d56c55210%7C0%7C0%7C639245729989298114%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=EI0kCf6N664gfeGmOm8EfI1qgnxFuOA%2Fdl3w%2BvXNElg%3D&reserved=0">Fill form here</Link>
           </div>
+        </div> <br/> <div className="text-sm">
+          <p className="font-rail"><i>Past due:</i> Please book your <i>House meetings</i> with your roommate! Everyone must book these by <i>September 25<sup>th</sup>!</i> Yes, even if you don't have a roommate.</p>
+          <div className="border-lef">
+            <Link target="_blank" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/w9GHAtKwCkC3LtPcFO7YAw2?ismsaljsauthenabled">Book House Meetings now!</Link>
+          </div>
         </div>
         <div>
         </div>
@@ -47,26 +47,55 @@ export default function Home() {
         <Link target="_blank" href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
         Here are the curated highlights:
         <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
-        <DateAnnounce date="2026-09-23 10:30" dateTo="2026-09-23 14:30" evHdr="Get Hired Fair">
-          <p className="font-rail">Career Centre's <b>Get Hired Fair</b> - 10:30a-2:30p - RAWC (Gym A/B, the big one)</p>
-          <p>Meet employers. Get hired. Your opportunity to speak with employers about potential opportunities including internships, summer, part-time, full-time, volunteer and co-op. Positions promoted at the fair include both on and off-campus. Bring your TCard and drop in at any time!</p>
-          <Link href="https://uoft.me/ghf">uoft.me/ghf</Link>
-        </DateAnnounce>
-        <DateAnnounce date="2026-09-24 20:00" dateTo="2026-09-24 21:00" evHdr="REF Workshop with Gabby">
-          <p className="font-rail">REF Workshop <b>with Gabby!</b> - 8p-9p - 4th Floor Common Room</p>
-          <p><b>Goal Setting & Habit Forming</b>: Develop study strategies, self-advocacy skills, and structured decision-making to make informed choices and foster academic resilience and respond well to academic challenges. Learn to avoid academic integrity violations and to use AI responsibly.</p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-09-25 18:00" evHdr="EON Quiz Night">
-          <p className="font-rail">EON Presents <b>Quiz Night</b> - 6p - Roy Ivor</p>
-          <p>From EON: <kbd className="text-black!">Wind down your evening at this premiere night in the Student Centre — a relaxed way to close out the day with fellow students.</kbd></p>
-        </DateAnnounce>
+
         <DateAnnounce date="2026-09-28 21:00" dateTo="2026-09-28 22:00" evHdr="Community Gatherings with jen!">
           <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
-          <p>From your very own Don: New fish every week! <br/> Snacks this week: chips; juice; twix; oreos. </p>
+          <p>New fish every week! you better be there. <br/> Snacks this week: chips; juice; twix; <s>oreos</s><sup>sorry, all out!</sup>. To request selection of snackies, please come by and tell me!</p>
         </DateAnnounce>
-        <DateAnnounce date="2026-10-25 14:00" dateTo="2026-10-25 16:00" evHdr="GAME Soccer Tournament">
+        <DateAnnounce date="2026-09-28 19:00" dateTo="2026-09-28 21:00" evHdr="VIVID: Letter Books">
+          <p className="font-rail">EON Affinity Groups Day 1: VIVID's <b>"Open When" letter books</b> - 7p-9p - 6th Floor Common Room</p>
+          <p>From EON: Open to all students with visible or non-visible disabilities.</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-09-29 19:00" dateTo="2026-09-29 21:00" evHdr="Kickback: Movie night!">
+          <p className="font-rail">EON Affinity Groups Day 2: Kickback's <b>Movie night!</b> - 7p-9p - 2nd Floor Seminar Room</p>
+          <p>From EON: Open to all Black-identifying students! They are showing <i>Akeelah and the Bee</i>!<br/>Free snacks and drinks. Resource packages from the Centre for Student Engagement
+          will also be distributed. go watch film!</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-09-30 00:00" evHdr="UTMSU Benefits Opt-out Deadline">
+          <p className="font-rail">Last day to opt-out of <b>UTMSU Health & Dental</b> insurance benefits</p>
+          <p>Must contact via email health@utmsu.ca // you <b>must</b> have "alternate, comparable health and dental plans". Application and approval required.</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-09-30 00:00" evHdr="Fall Payment Deadline">
+          <p className="font-rail">Fall Term Fee <b>payment deadline</b></p>
+          <p>Pay your Fall term fees by this date in full to avoid service charges! Service charges are applied on Oct 15!</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-1 18:00" dateTo="2026-10-1 20:00" evHdr="Umbrella: My Small Truth">
+          <p className="font-rail">EON Affinity Groups Day 3: Umbrella's <b>My Small Truth</b> - 6p-8p - Roy Ivor Multipurpose Room (right in front of the lobby)</p>
+          <p><i>No description was provided by the organiser of this event.</i></p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-1 20:00" dateTo="2026-10-1 21:00" evHdr="REF Workshop with Gabby">
+          <p className="font-rail">REF Workshop <b>with Gabby!</b> - 8p-9p - 4th Floor Common Room</p>
+          <p><b>Topic to come</b>: Description to come, promise!</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-2 18:30" dateTo="2026-10-2 20:30" evHdr="PRISM: Past, Present, Future You">
+          <p className="font-rail">EON Affinity Groups Day 4: PRISM's <b>Past, Present, Future You!</b> 6:30p-8:30p- 2nd Floor Seminar Room</p>
+          <p>From EON: Open to all QTBIPOC students living in residence!</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-12 00:00" evHdr="Thanksgiving">
+          <p className="font-rail">University closure: <b>Thanksgiving</b></p>
+          <p>Don't even think of going to your courses.</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-13 00:00" evHdr="50% Refund Drop Date">
+          <p className="font-rail">Last day to drop courses for <b>50% fee refund</b></p>
+          <p>Hard deadline - Check ACORN for more details.</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-25 14:00" dateTo="2026-10-25 16:00" evHdr="GAME Dodgeball Tournament">
           <p className="font-rail">GAME Presents <b>Dodgeball</b> - 2p - RAWC (Gym A/B, the big one)</p>
-          <p>From GAME: <kbd className="text-black!">Join us for an afternoon of soccer, competition and fun! Earn Colman Cup points, and win raffle prizes. No cleats!</kbd></p>
+          <p><i>No description was provided by the organiser of this event.</i></p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-24 00:00" dateTo="2026-11-1 00:00" evHdr="Reading week">
+          <p className="font-rail"><b>Reading</b> week</p>
+          <p>we know damn well youse not gonna do any reading</p>
         </DateAnnounce>
         <DateAnnounce evHdr="ART Event (soon)">ART event coming soon -- stay tuned!</DateAnnounce>
         </div>
@@ -193,6 +222,7 @@ export default function Home() {
         <ul className="list-disc list-inside">
           <li><Link href="https://www.utm.utoronto.ca/health/" target="_blank">Health and Counselling Centre</Link></li>
           <li><Link href="https://www.utm.utoronto.ca/rgasc/" target="_blank">Robert Gillespie Academic Skills Centre</Link></li>
+          <li><Link href="https://www.utm.utoronto.ca/mental-health-supports/mental-health-supports/mental-health-and-crisis-supports">Mental health supports on campus</Link></li>
         </ul>
       </Tab>
       <Tab linknm="address" headertxt="Mailing address">
