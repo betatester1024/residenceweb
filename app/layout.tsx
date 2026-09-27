@@ -22,6 +22,9 @@ export const raleway = Raleway({
 export const metadata: Metadata = {
   title: "UTM Salmon Hub",
   description: "Information, announcements and support hub for OPH Salmon Run",
+  icons: {
+    icon: process.env.NEXT_PUBLIC_FAVICON_URL || '/iconprimary.png',
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
