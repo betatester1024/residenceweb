@@ -50,7 +50,7 @@ export default function Home() {
 
         <DateAnnounce date="2026-09-28 21:00" dateTo="2026-09-28 22:00" evHdr="Community Gatherings with jen!">
           <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
-          <p>New fish every week! you better be there. <br/> Snacks this week: chips; juice; twix; <s>oreos</s><sup>sorry, all out!</sup>. To request selection of snackies, please come by and tell me!</p>
+          <p>New fish every week! you better be there. Chocolate chips<sup> plenty!</sup> for participation! <br/> Snacks this week: chips<sup>plenty!</sup>; juice<sup>restocking!</sup>; twix; oreos<sup>restocking!</sup>. To request selection of snackies, please come by and tell me!</p>
         </DateAnnounce>
         <DateAnnounce date="2026-09-28 19:00" dateTo="2026-09-28 21:00" evHdr="VIVID: Letter Books">
           <p className="font-rail">EON Affinity Groups Day 1: VIVID's <b>"Open When" letter books</b> - 7p-9p - 6th Floor Common Room</p>
@@ -222,6 +222,7 @@ export default function Home() {
         <ul className="list-disc list-inside">
           <li><Link href="https://www.utm.utoronto.ca/health/" target="_blank">Health and Counselling Centre</Link></li>
           <li><Link href="https://www.utm.utoronto.ca/rgasc/" target="_blank">Robert Gillespie Academic Skills Centre</Link></li>
+          <li><Link href="https://uoft.service-now.com/utm_askregistrar" target="_blank">AskRegistrar</Link></li>
           <li><Link href="https://www.utm.utoronto.ca/mental-health-supports/mental-health-supports/mental-health-and-crisis-supports">Mental health supports on campus</Link></li>
         </ul>
       </Tab>
