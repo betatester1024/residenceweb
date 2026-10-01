@@ -44,31 +44,12 @@ export default function Home() {
 
       </Tab>
       <Tab linknm="calendar" headertxt="Calendar">
+
         <Link target="_blank" href="https://www.utm.utoronto.ca/housing/residence-events-calendar">Full Residence Events Calendar</Link><br/>
         Here are the curated highlights:
+        {/* <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&showPrint=0&src=amVuZ3JlZW5leHBsb2Rlc0BnbWFpbC5jb20&src=ZnIuY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039be5&color=%230b8043" className="w-full" height={800}></iframe> */}
         <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
 
-        <DateAnnounce date="2026-09-28 21:00" dateTo="2026-09-28 22:00" evHdr="Community Gatherings with jen!">
-          <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
-          <p>New fish every week! you better be there. Chocolate chips<sup> plenty!</sup> for participation! <br/> Snacks this week: chips<sup>plenty!</sup>; juice<sup>restocking!</sup>; twix; oreos<sup>restocking!</sup>. To request selection of snackies, please come by and tell me!</p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-09-28 19:00" dateTo="2026-09-28 21:00" evHdr="VIVID: Letter Books">
-          <p className="font-rail">EON Affinity Groups Day 1: VIVID's <b>"Open When" letter books</b> - 7p-9p - 6th Floor Common Room</p>
-          <p>From EON: Open to all students with visible or non-visible disabilities.</p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-09-29 19:00" dateTo="2026-09-29 21:00" evHdr="Kickback: Movie night!">
-          <p className="font-rail">EON Affinity Groups Day 2: Kickback's <b>Movie night!</b> - 7p-9p - 2nd Floor Seminar Room</p>
-          <p>From EON: Open to all Black-identifying students! They are showing <i>Akeelah and the Bee</i>!<br/>Free snacks and drinks. Resource packages from the Centre for Student Engagement
-          will also be distributed. go watch film!</p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-09-30 00:00" evHdr="UTMSU Benefits Opt-out Deadline">
-          <p className="font-rail">Last day to opt-out of <b>UTMSU Health & Dental</b> insurance benefits</p>
-          <p>Must contact via email health@utmsu.ca // you <b>must</b> have "alternate, comparable health and dental plans". Application and approval required.</p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-09-30 00:00" evHdr="Fall Payment Deadline">
-          <p className="font-rail">Fall Term Fee <b>payment deadline</b></p>
-          <p>Pay your Fall term fees by this date in full to avoid service charges! Service charges are applied on Oct 15!</p>
-        </DateAnnounce>
         <DateAnnounce date="2026-10-1 18:00" dateTo="2026-10-1 20:00" evHdr="Umbrella: My Small Truth">
           <p className="font-rail">EON Affinity Groups Day 3: Umbrella's <b>My Small Truth</b> - 6p-8p - Roy Ivor Multipurpose Room (right in front of the lobby)</p>
           <p><i>No description was provided by the organiser of this event.</i></p>
@@ -81,6 +62,10 @@ export default function Home() {
           <p className="font-rail">EON Affinity Groups Day 4: PRISM's <b>Past, Present, Future You!</b> 6:30p-8:30p- 2nd Floor Seminar Room</p>
           <p>From EON: Open to all QTBIPOC students living in residence!</p>
         </DateAnnounce>
+        <DateAnnounce date="2026-10-5 21:00" dateTo="2026-10-5 22:00" evHdr="Community Gatherings with jen!">
+          <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
+          <p>New fish every week! you better be there. Chocolate chips<sup> plenty!</sup> for participation! <br/> Snacks this week: chips<sup>plenty!</sup>; juice<sup>out of stock!</sup>; twix; oreos<sup>restocking!</sup>. To request selection of snackies, please come by and tell me!</p>
+        </DateAnnounce>
         <DateAnnounce date="2026-10-12 00:00" evHdr="Thanksgiving">
           <p className="font-rail">University closure: <b>Thanksgiving</b></p>
           <p>Don't even think of going to your courses.</p>
@@ -89,10 +74,19 @@ export default function Home() {
           <p className="font-rail">Last day to drop courses for <b>50% fee refund</b></p>
           <p>Hard deadline - Check ACORN for more details.</p>
         </DateAnnounce>
+        <DateAnnounce date="2026-10-15 18:00" dateTo="2026-10-15 20:00" evHdr="ART Pumpkin Carving and Movie Night">
+          <p className="font-rail">ART Presents <b>Pumpkin Carving and Movie Night</b> - 6-8p - Roy Ivor Lobby</p>
+          <p><i>Coraline</i> to be shown; Competition with prizes to be announced.</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-10-22 14:00" dateTo="2026-10-22 23:00" evHdr="Spooktacular">
+          <p className="font-rail">Residence Committee <b>Spooktacular</b> - All evening - Location to come</p>
+          <p>Our flagship Halloween event! Biggest event of the year. <i>No description was provided by the organiser of this event.</i></p>
+        </DateAnnounce>
         <DateAnnounce date="2026-10-25 14:00" dateTo="2026-10-25 16:00" evHdr="GAME Dodgeball Tournament">
           <p className="font-rail">GAME Presents <b>Dodgeball</b> - 2p - RAWC (Gym A/B, the big one)</p>
           <p><i>No description was provided by the organiser of this event.</i></p>
         </DateAnnounce>
+
         <DateAnnounce date="2026-10-24 00:00" dateTo="2026-11-1 00:00" evHdr="Reading week">
           <p className="font-rail"><b>Reading</b> week</p>
           <p>we know damn well youse not gonna do any reading</p>
