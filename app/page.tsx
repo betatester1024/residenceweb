@@ -50,14 +50,6 @@ export default function Home() {
         {/* <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&showPrint=0&src=amVuZ3JlZW5leHBsb2Rlc0BnbWFpbC5jb20&src=ZnIuY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039be5&color=%230b8043" className="w-full" height={800}></iframe> */}
         <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
 
-        <DateAnnounce date="2026-10-1 18:00" dateTo="2026-10-1 20:00" evHdr="Umbrella: My Small Truth">
-          <p className="font-rail">EON Affinity Groups Day 3: Umbrella's <b>My Small Truth</b> - 6p-8p - Roy Ivor Multipurpose Room (right in front of the lobby)</p>
-          <p><i>No description was provided by the organiser of this event.</i></p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-10-1 20:00" dateTo="2026-10-1 21:00" evHdr="REF Workshop with Gabby">
-          <p className="font-rail">REF Workshop <b>with Gabby!</b> - 8p-9p - 4th Floor Common Room</p>
-          <p><b>Topic to come</b>: Description to come, promise!</p>
-        </DateAnnounce>
         <DateAnnounce date="2026-10-2 18:30" dateTo="2026-10-2 20:30" evHdr="PRISM: Past, Present, Future You">
           <p className="font-rail">EON Affinity Groups Day 4: PRISM's <b>Past, Present, Future You!</b> 6:30p-8:30p- 2nd Floor Seminar Room</p>
           <p>From EON: Open to all QTBIPOC students living in residence!</p>
