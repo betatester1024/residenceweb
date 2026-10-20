@@ -50,10 +50,6 @@ export default function Home() {
         {/* <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&showPrint=0&src=amVuZ3JlZW5leHBsb2Rlc0BnbWFpbC5jb20&src=ZnIuY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039be5&color=%230b8043" className="w-full" height={800}></iframe> */}
         <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
 
-        <DateAnnounce date="2026-10-19 21:00" dateTo="2026-10-19 22:00" evHdr="Community Gatherings with jen!">
-          <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
-          <p>New fish every week! you better be there. Chocolate chips<sup> plenty!</sup> for participation! <br/> Snacks this week: chips<sup>plenty!</sup>; juice<sup>out of stock!</sup>; twix<sup>out of stock!</sup>; oreos<sup>in stock!</sup>. To request selection of snackies, please come by and tell me!</p>
-        </DateAnnounce>
         <DateAnnounce date="2026-10-21 20:00" dateTo="2026-10-21 21:00" evHdr="REF Workshop with Gabby!">
           <p className="font-rail">REF workshop <b>with Gabby!</b> - TIME TBD - 4th Floor Common Room</p>
           <p><i>No description was provided by the organiser of this event.</i></p>
@@ -73,6 +69,10 @@ export default function Home() {
         <DateAnnounce date="2026-10-24 00:00" dateTo="2026-11-1 00:00" evHdr="Reading week">
           <p className="font-rail"><b>Reading</b> week</p>
           <p>we know damn well youse not gonna do any reading</p>
+        </DateAnnounce>
+        <DateAnnounce date="2026-11-2 21:00" dateTo="2026-11-2 22:00" evHdr="Community Gatherings with jen!">
+          <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
+          <p>New fish every week! you better be there. Chocolate chips<sup> plenty!</sup> for participation! <br/> Snacks this week: chips<sup>plenty!</sup>; juice<sup>out of stock!</sup>; twix<sup>out of stock!</sup>; oreos<sup>in stock!</sup>. To request selection of snackies, please come by and tell me!</p>
         </DateAnnounce>
         <DateAnnounce date="2026-11-4 14:00" dateTo="2026-11-4 16:00" evHdr="Residence Academic Fair">
           <p className="font-rail">Residence <b>Academic Fair</b> - 7-9p - Roy Ivor Lobby</p>
