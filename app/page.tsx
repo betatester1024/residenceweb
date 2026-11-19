@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import bigfishjump from '../public/bigfishjump.png';
+import jen from '../public/jenselect.png';
 
 import { Children, JSX, ReactElement, ReactNode, Suspense, useEffect, useState } from "react";
 import ical, { ICalCalendarMethod } from 'ical-generator';
@@ -15,8 +16,12 @@ export default function Home() {
     <TabbableCtn>
       <Tab linknm="welcome" headertxt={<span>Welcome to the <b>Salmon Hub</b></span>}>
         <div>
-          <p className="text-lg font-rail"><b className="text-blue-400">Announcement:</b> Please book your <b>One-on-One</b> meeting! Everyone must book at least one of these per semester!</p>
-          <Link target="_blank" className="border-lef" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book One-on-Ones now!</Link>
+          <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Complete the <b>November Satisfaction Survey</b></p>
+          <div className="border-lef">
+            <Link target="_blank" href="https://forms.cloud.microsoft/r/rk9NxN1s8e">Fill the survey now!</Link>
+            <br/>Remember to select this when you choose your Don:
+            <Image src={jen} alt="jen" loading="eager" height={30}></Image>
+          </div>
         </div><br/> <div>
           <p className="font-rail text-lg"><b className="text-blue-400">Announcement:</b> Please pester your roommate to <b>join the Signal!</b></p>
           <div className="border-lef">
@@ -38,6 +43,9 @@ export default function Home() {
           <div className="border-lef">
             <Link target="_blank" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/w9GHAtKwCkC3LtPcFO7YAw2?ismsaljsauthenabled">Book House Meetings now!</Link>
           </div>
+        </div> <br/> <div>
+          <p className="text-lg font-rail"><i>Past due:</i> Please book your <i>One-on-One</i> meeting! Everyone must book at least one of these per semester!</p>
+          <Link target="_blank" className="border-lef" href="https://bookings.cloud.microsoft/book/RufinDonOneOnOnes@bookings.office365.utoronto.ca/s/xy3N2j41iU-eqdvBzyqtSQ2?ismsaljsauthenabled">Book One-on-Ones now!</Link>
         </div>
         <div>
         </div>
@@ -49,37 +57,13 @@ export default function Home() {
         Here are the curated highlights:
         {/* <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&showPrint=0&src=amVuZ3JlZW5leHBsb2Rlc0BnbWFpbC5jb20&src=ZnIuY2FuYWRpYW4jaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039be5&color=%230b8043" className="w-full" height={800}></iframe> */}
         <div style={{ gridTemplateColumns: `0fr 1fr` }} className=" w-full grid grid-cols-3 gap-3 gap-x-2">
-
-        <DateAnnounce date="2026-10-21 20:00" dateTo="2026-10-21 21:00" evHdr="REF Workshop with Gabby!">
-          <p className="font-rail">REF workshop <b>with Gabby!</b> - TIME TBD - 4th Floor Common Room</p>
+        <DateAnnounce date="2026-11-23 18:00" dateTo="2026-11-23 20:00" evHdr="Culture Day">
+          <p className="font-rail">EON presents <b>Culture Day!</b> - 6p-8p - Check your door tags</p>
           <p><i>No description was provided by the organiser of this event.</i></p>
         </DateAnnounce>
-        <DateAnnounce date="2026-10-22 19:00" dateTo="2026-10-22 22:00" evHdr="Spooktacular">
-          <p className="font-rail">Residence Committee <b>Spooktacular</b> - 7p-10p - Lislehurst, Principal's Rd</p>
-          <p>Our flagship Halloween event! Collaboration with the Office of the Registrar. ...tour the Principal's House?</p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-10-23 19:00" dateTo="2026-10-23 21:00" evHdr="Community Chill'n'Chat">
-          <p className="font-rail">EON presents <b>Community Chill N' Chat!</b> - 7p-9p - Roy Ivor Lobby</p>
-          <p><i>No description was provided by the organiser of this event.</i></p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-10-25 14:00" dateTo="2026-10-25 16:00" evHdr="GAME Dodgeball Tournament">
-          <p className="font-rail">GAME Presents <b>Dodgeball</b> - 2p - RAWC (Gym A/B, the big one)</p>
-          <p><i>No description was provided by the organiser of this event.</i></p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-10-24 00:00" dateTo="2026-11-1 00:00" evHdr="Reading week">
-          <p className="font-rail"><b>Reading</b> week</p>
-          <p>we know damn well youse not gonna do any reading</p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-11-2 21:00" dateTo="2026-11-2 22:00" evHdr="Community Gatherings with jen!">
+        <DateAnnounce date="2026-11-23 21:00" dateTo="2026-11-23 22:00" evHdr="Community Gatherings with jen!">
           <p className="font-rail">Community gatherings <b>with jen!</b> - 9p-10p - 5th Floor Common Room</p>
-          <p>New fish every week! you better be there. Chocolate chips<sup> plenty!</sup> for participation! <br/> Snacks this week: chips<sup>plenty!</sup>; juice<sup>out of stock!</sup>; twix<sup>out of stock!</sup>; oreos<sup>in stock!</sup>. To request selection of snackies, please come by and tell me!</p>
-        </DateAnnounce>
-        <DateAnnounce date="2026-11-4 14:00" dateTo="2026-11-4 16:00" evHdr="Residence Academic Fair">
-          <p className="font-rail">Residence <b>Academic Fair</b> - 7-9p - Roy Ivor Lobby</p>
-          <p>Opportunity for all residence students to network with academic/campus partners, collect resources, win prizes and generally have a face-to-face interaction
- with leaders on campus who are invested in the academic success of first-year and upper-year students. </p>
-          <p>Some people who we have invited are the Career Centre, Health and Counselling Centre, Accessibility Services, RGASC and FSGs, International Education
- Centre, Centre for Student Engagement, and many more. <i>...and raffle prizes to be won!</i></p>
+          <p>home cooking for everyone! new fish tag! Chocolate chips<sup> plenty!</sup> for participation! <br/> Snacks this week: chips<sup>plenty!</sup>; juice<sup>out of stock!</sup>; twix<sup>out of stock!</sup>; oreos<sup>in stock!</sup>. To request selection of snackies, please come by and tell me!</p>
         </DateAnnounce>
         <DateAnnounce date="2026-11-19 16:00" dateTo="2026-11-19 20:00" evHdr="Residence Academic Fair">
           <p className="font-rail">Room for <b>Wellness</b> - 4-8p - Roy Ivor Lobby</p>
